@@ -37,19 +37,13 @@ const articles = [
     {
         name: "sword" ,
         price: 10.80,
-        quantity: 14,
+        quantity: 0,
     }
 ]
 
 
-function getAllStoreItems(arr){
-  let items = [];
-  let item = {name: '', price: 0.00}
-  arr.forEach(i => {
-    item = {name: i.name, price: i.price}
-    items.push(item);
-  });
-  return items;
+function getAllAvailableStoreItems(arr){
+  return arr.filter(item => item.quantity > 0)
 }
 
 
