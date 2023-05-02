@@ -41,9 +41,14 @@ const articles = [
     }
 ]
 
-
+ let cart = []
 function getAllAvailableStoreItems(arr){
   return arr.filter(item => item.quantity > 0)
+}
+
+function addItemToCart(itemName, soltQuantity, getPrice) {
+    let item = {name: itemName, price: getPrice, soltQuantity: soltQuantity}
+    cart.push(item);
 }
 
 
