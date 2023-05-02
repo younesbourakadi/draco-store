@@ -5,7 +5,11 @@ const articles = [
         quantity: 10,
     },
     {
+<<<<<<< HEAD
         name: "armure",
+=======
+        name: "Armure",
+>>>>>>> 397893f7a248c67bda30484f4f8afea157c22c43
         price: 7.90,
         quantity: 7,
     },
@@ -15,7 +19,11 @@ const articles = [
         quantity: 46,
     },
     {
+<<<<<<< HEAD
         name: "calice",
+=======
+        name: "Calice",
+>>>>>>> 397893f7a248c67bda30484f4f8afea157c22c43
         price: 3.80,
         quantity: 26,
     },
@@ -25,7 +33,11 @@ const articles = [
         quantity: 50,
     },
     {
+<<<<<<< HEAD
         name: "casque",
+=======
+        name: "Casque",
+>>>>>>> 397893f7a248c67bda30484f4f8afea157c22c43
         price: 9.90,
         quantity: 8,
     },
