@@ -7,6 +7,6 @@ Il veut que son ordinateur gère également le stock de tous les articles qu’i
 
 ## Techniques
 
-● Manipulation de formulaires
-● Local storage
+● Manipulation de formulaires\
+● Local storage\
 ● Fortes attentes UX
