@@ -41,4 +41,17 @@ const articles = [
     }
 ]
 
-console.log (articles);
+
+function getAllStoreItems(arr){
+  let items = [];
+  let item = {name: '', price: 0.00}
+  arr.forEach(i => {
+    item = {name: i.name, price: i.price}
+    items.push(item);
+  });
+  return items;
+}
+
+
+
+
