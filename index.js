@@ -5,17 +5,17 @@ const articles = [
         quantity: 10,
     },
     {
-        name: "Armure" ,
+        name: "Armure",
         price: 7.90,
         quantity: 7,
-    }, 
+    },
     {
         name: "Arrow",
         price: 4.50,
         quantity: 46,
     },
     {
-        name: "Calice" ,
+        name: "Calice",
         price: 3.80,
         quantity: 26,
     },
@@ -25,29 +25,30 @@ const articles = [
         quantity: 50,
     },
     {
-        name:  "Casque" ,
+        name: "Casque",
         price: 9.90,
         quantity: 8,
     },
     {
-        name: "potion" ,
+        name: "potion",
         price: 5.60,
         quantity: 36,
     },
     {
-        name: "sword" ,
+        name: "sword",
         price: 10.80,
         quantity: 0,
     }
 ]
 
- let cart = []
-function getAllAvailableStoreItems(arr){
-  return arr.filter(item => item.quantity > 0)
+let cart = []
+
+function getAllAvailableStoreItems(arr) {
+    return arr.filter(item => item.quantity > 0)
 }
 
 function addItemToCart(itemName, soltQuantity, getPrice) {
-    let item = {name: itemName, price: getPrice, soltQuantity: soltQuantity}
+    let item = { name: itemName, price: getPrice, soltQuantity: soltQuantity }
     cart.push(item);
 }
 
