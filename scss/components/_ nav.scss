@@ -1,0 +1,17 @@
+.nav{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+}
+
+.nav__img{
+    width: 5rem;
+    padding-left: 2rem;
+}
+
+.nav__ttl{
+    color: $beige;
+    font-size: 2rem;
+    padding-left: 2rem;
+
+}
