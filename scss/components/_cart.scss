@@ -1,31 +1,32 @@
-.cart{
-    width: 30%;
-    height: 85vh;
-    background-color: $brown;
+.cart {
     position: relative;
-    // border-radius: 1rem;
-}
+    z-index: 10;
+    width: 30%;
+    height: calc(85vh - 2rem);
+    background-image: url(/img/parchemin.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 1rem 0rem 1rem 2rem;
+    &__ttl{
+        color: $lightgrey;
+        font-size: 2rem;
+        text-align: center;
+        padding-top: 1.5rem;
+    }
+    &__wrap{
+        color: $lightgrey;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        font-size: 1.2rem;
+        position: absolute;
+        bottom: 2rem;
+        left: 3rem;
+    }
+    &__pieces{
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
 
-.cart__ttl{
-    color: $lightgrey;
-    font-size: 2rem;
-    text-align: center;
-    padding-top: 1.5rem;
-}
-
-.cart__wrap{
-    color: $lightgrey;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 1.2rem;
-    position: absolute;
-    bottom: 2rem;
-    left: 3rem;
-}
-
-.cart__pieces{
- display: flex;
- gap: 2rem;
- justify-content: center;
+    }
 }

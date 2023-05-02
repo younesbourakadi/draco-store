@@ -2,15 +2,15 @@
     height: 15vh;
     display: flex;
     align-items: center;
-}
+    &__img{
+        width: 7rem;
+        padding-left: 2rem;
+    }
+    &__ttl{
+        color: $brown;
+        font-size: 2.5rem;
+        padding-left: 2rem;
+        font-family: 'Uncial Antiqua';
 
-.nav__img{
-    width: 7rem;
-    padding-left: 2rem;
-}
-
-.nav__ttl{
-    color: $brown;
-    font-size: 2.5rem;
-    padding-left: 2rem;
+    }
 }
