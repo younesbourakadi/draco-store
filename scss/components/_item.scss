@@ -1,0 +1,25 @@
+.itm{
+display: flex;
+align-items: center;
+justify-content: center;
+color: $lightgrey;
+gap: 2rem;
+    &__wrap{
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+    }
+    &__img{
+        width: 4rem;
+    }
+    &__img--bin{
+        width: 2rem;
+    }
+    &__ttl{
+        font-size: 1rem;
+    }
+    &__qty{
+        display: flex;
+        gap: .5rem
+    }
+}
