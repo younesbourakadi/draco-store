@@ -47,5 +47,14 @@ function getAllAvailableStoreItems(arr){
 }
 
 
+function getItemPrice(arr, itemName){
+  let price = 0;
+  arr.forEach(i => {
+    if(i.name == itemName) {
+      price = i.price;
+    }
+  });
+  return price;
+}
 
 
