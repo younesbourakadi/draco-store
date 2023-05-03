@@ -53,7 +53,6 @@ ul {
   background-image: url(/img/parchemin.png);
   background-repeat: no-repeat;
   background-size: cover;
-  margin: 1rem 0rem 1rem 2rem;
 }
 .cart__ttl {
   color: #FEFDFB;
@@ -130,47 +129,53 @@ ul {
   flex-wrap: wrap;
   border: 2px solid yellow;
   width: calc(75% - 2rem);
-}
-.container__ttl {
-  color: #FCF0DC;
-}
-
-.menu {
-  gap: 2rem;
   background-color: #6C491F;
-  display: flex;
-  list-style-type: none;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  margin: 2rem;
 }
-
 .container__ttl {
   color: #FCF0DC;
+  font-size: 2.5rem;
+  margin: 1rem;
 }
 .container__flex {
   display: flex;
 }
 
+.menu {
+  gap: 2rem;
+  border: 2px solid red;
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
+  justify-content: center;
+}
+
 .card {
-  width: 15rem;
+  width: 10rem;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  border: 2px solid blue;
   background-color: #FCF0DC;
 }
 .card__ttl {
   text-align: center;
+  padding-top: 1rem;
 }
 .card__img {
-  width: 100%;
-  width: 80%;
-  margin: 0 auto;
+  width: 50%;
+  margin: 1rem auto;
+  border: 2px solid salmon;
 }
 .card__img--cart {
   height: 3rem;
 }
 .card__price {
-  text-align: center;
+  display: flex;
+  justify-content: space-around;
 }
 .card__sc {
   font-size: 0.5rem;

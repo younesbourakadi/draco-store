@@ -69,8 +69,6 @@ function removeItemFromCart(itemName) {
      cart.splice(itemName, 1);
 }
 
-document.querySelector('#bin-remove').addEventListener("click", removeItemFromCart)
-
 function changeQuantityInCart(num, name) {
   let i = cart.filter(item => item.name === name)
   i[0].soldQuantity = num;
@@ -80,7 +78,6 @@ function getCartTotal(cart){
   return cart.reduce((acc, curr) => acc + curr.price * curr.soldQuantity, 0);
 }
 
-document.querySelector('#total-full')
 
 function getCartTotalVAT(cart){
   const vat = 1.13;
