@@ -52,9 +52,20 @@ function addItemToCart(itemName, soldQuantity, price) {
   cart.push(item);
 }
 
-function getItemPrice(items, itemName) {
-  const item = items.find(i => i.name === itemName);
-  return item ? item.price : 0;
+// function addItemToCart(itemName, soldQuantity, price) {
+//   const item = { name: itemName, price, soldQuantity };
+//   cart.push(item);
+// }
+
+
+function getItemPrice(arr, itemName) {
+    let price = 0;
+    arr.forEach(i => {
+        if (i.name == itemName) {
+            price = i.price;
+        }
+    });
+    return price;
 }
 
 function convertGoldToSilverAndGold(price) {
@@ -63,16 +74,20 @@ function convertGoldToSilverAndGold(price) {
   return { gold , silver };
 }
 
-function getCartTotal(cart){
-  return cart.reduce((acc, curr) => acc + curr.price * curr.soldQuantity, 0);
+// function removeItemFromCart(arr, itemName) {
+//     cart.splice(itemName, 1);
+//     }
+
+function changeQuantityInCart(num) {
+    //     // if (e.key === enter){
+    cart[0].soltQuantity = num;
+    // }
 }
 
-function getCartTotalVAT(cart){
-  const vat = 1.13;
-  return Number((getCartTotal(cart) * vat).toFixed(2));
-}
 
-console.log(getCartTotal([{name: 'casque', price: 4.30, soldQuantity: 5}, {name: 'potion', price: 3.57, soldQuantity: 3}]))
-console.log(getCartTotalVAT([{name: 'casque', price: 4.30, soldQuantity: 5}, {name: 'potion', price: 3.57, soldQuantity: 3}]))
-console.log(convertGoldToSilverAndGold(getCartTotalVAT([{name: 'casque', price: 4.30, soldQuantity: 5}, {name: 'potion', price: 3.57, soldQuantity: 3}])))
+
+
+
+
+
 
