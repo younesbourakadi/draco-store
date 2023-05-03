@@ -58,14 +58,14 @@ function addItemToCart(itemName, soltQuantity, price, arr) {
 // }
 
 
-function getItemPrice(arr, itemName){
-  let price = 0;
-  arr.forEach(i => {
-    if(i.name == itemName) {
-      price = i.price;
-    }
-  });
-  return price;
+function getItemPrice(arr, itemName) {
+    let price = 0;
+    arr.forEach(i => {
+        if (i.name == itemName) {
+            price = i.price;
+        }
+    });
+    return price;
 }
 
 // function getItemPrice(items, itemName) {
@@ -73,26 +73,20 @@ function getItemPrice(arr, itemName){
 //   return item ? item.price : 0;
 // }
 
-
-
-addItemToCart ('potion', 8, getItemPrice (articles, 'potion'), articles);
-console.log (cart);
-
-addItemToCart ('arrow', 18, getItemPrice (articles, 'arrow'), articles);
-
 // function removeItemFromCart(arr, itemName) {
 //     cart.splice(itemName, 1);
 //     }
 
-function changeQuantityInCart (num) {
+function changeQuantityInCart(num) {
     //     // if (e.key === enter){
-            cart[0].soltQuantity =  num;
-    //     // }
-    }
+    cart[0].soltQuantity = num;
+    // }
+}
 
 
-// removeItemFromCart (cart, 'arrow');
 
 
-changeQuantityInCart (36); 
-console.log (cart);
+
+
+
+
