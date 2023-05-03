@@ -157,5 +157,3 @@ const cartSilver = document.getElementById("cart__silver");
 const cartGold = document.getElementById("cart__gold");
 cartGold.innerText = gold;
 cartSilver.innerText = silver;
-
-
