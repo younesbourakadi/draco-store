@@ -54,6 +54,7 @@ function getAllAvailableStoreItems(arr) {
     return arr.filter(item => item.quantity > 0)
 }
 
+
 function addItemToCart(name, soldQuantity, price) {
     const item = { name, price, soldQuantity };
     cart.push(item);
@@ -97,9 +98,11 @@ function getCartTotal(cart) {
     return cart.reduce((acc, curr) => acc + curr.price * curr.soldQuantity, 0);
 }
 
+
 function getCartTotalVAT(cart) {
     const vat = 1.13;
     return Number((getCartTotal(cart) * vat).toFixed(2));
+
 }
 
 
