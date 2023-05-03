@@ -57,13 +57,11 @@ function getItemPrice(items, itemName) {
   return item ? item.price : 0;
 }
 
-function convertGoldToSilverAndGold(items, itemName) {
-  let price = getItemPrice(items, itemName);
+function convertGoldToSilverAndGold(price) {
   let gold = Math.floor(price);
   let silver = Math.round((price - gold) * 10);
   return { gold , silver };
 }
-
 
 function getCartTotal(cart){
   return cart.reduce((acc, curr) => acc + curr.price * curr.soldQuantity, 0);
@@ -71,9 +69,10 @@ function getCartTotal(cart){
 
 function getCartTotalVAT(cart){
   const vat = 1.13;
-  return (getCartTotal(cart) * vat).toFixed(2);
+  return Number((getCartTotal(cart) * vat).toFixed(2));
 }
 
 console.log(getCartTotal([{name: 'casque', price: 4.30, soldQuantity: 5}, {name: 'potion', price: 3.57, soldQuantity: 3}]))
 console.log(getCartTotalVAT([{name: 'casque', price: 4.30, soldQuantity: 5}, {name: 'potion', price: 3.57, soldQuantity: 3}]))
+console.log(convertGoldToSilverAndGold(getCartTotalVAT([{name: 'casque', price: 4.30, soldQuantity: 5}, {name: 'potion', price: 3.57, soldQuantity: 3}])))
 
