@@ -1,8 +1,10 @@
 .menu {
+
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     gap: 4rem;
     padding: 2rem;
     justify-content: center;
+    background-color: $brown;
 }

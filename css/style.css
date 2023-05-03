@@ -48,6 +48,7 @@ ul {
 }
 
 .cart {
+
   position: sticky;
   top: 0;
   background-image: url(/img/parchemin.png);
@@ -95,6 +96,7 @@ ul {
   padding: 1.5rem;
   color: #6C491F;
   gap: 2rem;
+  width: 100%;
 }
 .itm__wrap {
   display: flex;
@@ -151,6 +153,7 @@ ul {
   gap: 4rem;
   padding: 2rem;
   justify-content: center;
+  background-color: #6C491F;
 }
 
 .card {
