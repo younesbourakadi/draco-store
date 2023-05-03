@@ -41,45 +41,63 @@ const articles = [
     }
 ]
 
-let cart = []
+let cart = [{
+    name: "sword",
+    price: 10.80,
+    soldQuantity: 0,
+}
+]
 
 function getAllAvailableStoreItems(arr) {
     return arr.filter(item => item.quantity > 0)
 }
 
 function addItemToCart(name, soldQuantity, price) {
-  const item = { name, price, soldQuantity };
-  cart.push(item);
+    const item = { name, price, soldQuantity };
+    cart.push(item);
 }
 
 function getItemPrice(items, itemName) {
-  const item = items.find(i => i.name === itemName);
-  return item ? item.price : 0;
+    const item = items.find(i => i.name === itemName);
+    return item ? item.price : 0;
 }
 
 function convertGoldToSilverAndGold(items, itemName) {
-  let price = getItemPrice(items, itemName);
-  let gold = Math.floor(price);
-  let silver = Math.round((price - gold) * 10);
-  return { gold , silver };
+    let price = getItemPrice(items, itemName);
+    let gold = Math.floor(price);
+    let silver = Math.round((price - gold) * 10);
+    return { gold, silver };
 }
 
 function removeItemFromCart(itemName) {
-     cart.splice(itemName, 1);
+    cart.splice(itemName, 1);
 }
 
 function changeQuantityInCart(num, name) {
-  let i = cart.filter(item => item.name === name)
-  i[0].soldQuantity = num;
+    let i = cart.filter(item => item.name === name)
+    i[0].soldQuantity = num;
 }
 
-function getCartTotal(cart){
-  return cart.reduce((acc, curr) => acc + curr.price * curr.soldQuantity, 0);
+function addQuantityInCart(name) {
+    let i = cart.filter(item => item.name === name)
+    i[0].soldQuantity++;
 }
 
-function getCartTotalVAT(cart){
-  const vat = 1.13;
-  return Number((getCartTotal(cart) * vat).toFixed(2));
+
+function removeQuantityInCart(name) {
+    let i = cart.filter(item => item.name === name)
+    if (i[0].soldQuantity > 0) {
+        i[0].soldQuantity--;
+    }
+}
+
+function getCartTotal(cart) {
+    return cart.reduce((acc, curr) => acc + curr.price * curr.soldQuantity, 0);
+}
+
+function getCartTotalVAT(cart) {
+    const vat = 1.13;
+    return Number((getCartTotal(cart) * vat).toFixed(2));
 }
 
 
