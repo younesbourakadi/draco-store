@@ -37,7 +37,27 @@ const articles = [
     {
         name: "sword",
         price: 10.80,
-        quantity: 0,
+        quantity: 1,
+    },
+    {
+        name: "sword",
+        price: 10.80,
+        quantity: 1,
+    },
+    {
+        name: "sword",
+        price: 10.80,
+        quantity: 1,
+    },
+    {
+        name: "sword",
+        price: 10.80,
+        quantity: 1,
+    },
+    {
+        name: "sword",
+        price: 10.80,
+        quantity: 1,
     }
 ]
 

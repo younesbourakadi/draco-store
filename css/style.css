@@ -34,7 +34,6 @@ ul {
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 1rem;
   background-color: #FCF0DC;
 }
 .nav__img {
@@ -49,19 +48,24 @@ ul {
 }
 
 .cart {
-  position: relative;
+
+  position: sticky;
+  top: 0;
   background-image: url(/img/parchemin.png);
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
 }
 .cart__ttl {
-  color: #FEFDFB;
-  font-size: 2.5rem;
+  color: #6C491F;
+  font-size: 2rem;
   text-align: center;
   padding-top: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 0.2rem solid #6C491F;
 }
 .cart__wrap {
-  color: #FEFDFB;
+  color: #6C491F;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -89,8 +93,8 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 1rem;
-  color: #FEFDFB;
+  padding: 1.5rem;
+  color: #6C491F;
   gap: 2rem;
   width: 100%;
 }
@@ -100,7 +104,7 @@ ul {
   gap: 0.5rem;
 }
 .itm__img {
-  width: 4rem;
+  width: 3rem;
 }
 .itm__img--bin {
   width: 2rem;
@@ -127,62 +131,71 @@ ul {
 .container {
   display: flex;
   flex-direction: column;
-  width: calc(75% - 2rem);
+  flex-wrap: wrap;
   background-color: #6C491F;
-  margin: 0 2rem;
+  margin: 0 3rem;
 }
 .container__ttl {
   color: #FCF0DC;
   font-size: 2.5rem;
-  margin: 1rem;
+  margin: 2rem 0 0 0;
+  text-align: center;
 }
 .container__flex {
   display: flex;
+  position: relative;
 }
 
 .menu {
-  gap: 2rem;
   display: flex;
-  list-style-type: none;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: 3rem;
+  gap: 4rem;
   padding: 2rem;
   justify-content: center;
   background-color: #6C491F;
 }
 
 .card {
-  width: 10rem;
+  width: 25%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   background-color: #FCF0DC;
+  position: relative;
+  border: 4mm ridge rgba(255, 215, 0, 0.6);
+  box-shadow: 5px 3px 3px black;
 }
 .card__ttl {
   text-align: center;
+  font-size: 1.5rem;
   padding-top: 1rem;
+  text-transform: capitalize;
 }
 .card__img {
   width: 50%;
   margin: 1rem auto;
 }
-.card__img--cart {
-  height: 3rem;
-}
 .card__price {
   display: flex;
   justify-content: space-around;
+  padding-bottom: 2rem;
 }
-.card__sc {
-  font-size: 0.5rem;
-  font-size: 1rem;
-}
-.card__gc {
-  font-size: 0.5rem;
-  font-size: 1rem;
+.card__sc, .card__gc {
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 .card__btn {
-  background: none;
+  background: #A80126;
   border: none;
+  margin: 0 auto;
+  padding: 0.5rem;
+  border-radius: 50px;
+  position: absolute;
+  bottom: -2rem;
+  left: 5rem;
+  box-shadow: 5px 3px 3px black;
+}
+.card__img--cart {
+  height: 2rem;
 }/*# sourceMappingURL=style.css.map */

@@ -1,16 +1,23 @@
 .cart {
-    position: relative;
+
+    position: sticky;
+    top:0;
     background-image: url(/img/parchemin.png);
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
+       
+
     &__ttl{
-        color: $lightgrey;
-        font-size: 2.5rem;
+        color: $brown;
+        font-size: 2rem;
         text-align: center;
         padding-top: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: .2rem solid $brown;
     }
     &__wrap{
-        color: $lightgrey;
+        color: $brown;
         display: flex;
         flex-direction: column;
         text-align: center;
@@ -34,3 +41,4 @@
         width: 3rem;
     }
 }
+
