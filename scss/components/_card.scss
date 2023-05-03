@@ -6,8 +6,10 @@
     flex-wrap: wrap;
     background-color: $beige;
     border-radius: 1rem;
+    position: relative;
     &__ttl{
         text-align: center;
+        font-size: 1.5rem;
         padding-top: 1rem;
     }
     &__img{
@@ -16,11 +18,12 @@
         // border: 2px solid salmon;
     }
     &__img--cart{
-        height: 3rem;
+        height: 2rem;
     }
     &__price{
         display: flex;
         justify-content: space-around;
+        padding-bottom: 2rem;
     }
     &__sc{
         font-size: 0.5rem;
@@ -31,7 +34,14 @@
         font-size: 1rem;
     }
     &__btn{
-        background: none;
+        background: $cta;
+        width: 3rem;
         border: none;
+        margin: 0 auto;
+        padding: .5rem;
+        border-radius: 50px;
+        position: absolute;
+        bottom: -2rem;
+        left: 3.5rem;
     }
 }
