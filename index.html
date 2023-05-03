@@ -20,6 +20,23 @@
         <h1 class="nav__ttl">DracoStore</h1>
     </nav>
 
+    <div class="container__flex">
+    <section class="container">
+        <h2 class="container__ttl">Articles</h2>
+        <ul class="menu">
+            <li class="card">
+                <h3 class="card__ttl">title</h3>
+                <img class="card__img" src="./img/logo_blk.png" />
+                <div class="card__price">
+                    <span class="card__sc">SC</span>
+                    <span class="card__gc">SG</span>
+                </div>
+                <button class="card__btn"> <img src="img/cart.png" alt="panier" class="card__img--cart">
+                </button>
+            </li>
+        </ul>
+    </section>
+
     <aside class="cart">
         <h2 class="cart__ttl">Panier</h2>
         <article class="itm">
@@ -33,16 +50,22 @@
                 <button class="itm__button">+</button>
             </div>
             <button class="itm__button">
-            <img src="img/bin.png" alt="poubelle" class="itm__img--bin"></button>
+                <img src="img/bin.png" alt="poubelle" class="itm__img--bin" id="bin-remove"></button>
         </article>
         <div class="cart__wrap">
-            <h3 class="cart__total">Total TTC : <p> 20,60</p></h3>
+            <h3 class="cart__total">Total TTC : <p id="total-full"> 20,60</p>
+            </h3>
             <div class="cart__pieces">
-                <img src="img/po.png" alt="pièces d'or" class="cart__img"><p>20</p>
-                <img src="img/pa.png" alt="pièces d'argent" class="cart__img"><p>6</p>
-        </div>
+                <img src="img/po.png" alt="pièces d'or" class="cart__img">
+                <p>20</p>
+                <img src="img/pa.png" alt="pièces d'argent" class="cart__img">
+                <p>6</p>
+            </div>
         </div>
 
     </aside>
+</div>
+    <script src="index.js"></script>
 </body>
+
 </html>

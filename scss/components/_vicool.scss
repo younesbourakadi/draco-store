@@ -1,0 +1,66 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap:wrap ;
+    border: 2px solid yellow;
+    width: calc(75% - 2rem);
+    &__ttl{
+        color: $beige;
+    }
+}
+
+.menu {
+    gap: 2rem;
+    // border: 2px solid red;
+    background-color: $brown;
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.container {
+    // border: 2px solid yellow;
+    &__ttl{
+        color: $beige;
+    }
+    &__flex{
+        display: flex;
+    }
+}
+
+.card {
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    // border: 2px solid blue;
+    background-color: $beige;
+    &__ttl{
+        text-align: center;
+    }
+    &__img{
+        width: 100%;
+        width: 80%;
+        margin: 0 auto;
+        // border: 2px solid salmon;
+    }
+    &__img--cart{
+        height: 3rem;
+    }
+    &__price{
+        text-align: center;
+    }
+    &__sc{
+        font-size: 0.5rem;
+        font-size: 1rem;
+    } 
+    &__gc{
+        font-size: 0.5rem;
+        font-size: 1rem;
+    }
+    &__btn{
+        background: none;
+        border: none;
+    }
+}
