@@ -63,3 +63,9 @@ function convertGoldToSilverAndGold(items, itemName) {
   let silver = Math.round((price - gold) * 10);
   return { gold , silver };
 }
+
+function getCartTotal(cart){
+  return cart.reduce((acc, curr) => acc + curr.price * curr.soldQuantity, 0);
+}
+
+console.log(getCartTotal([{name: 'casque', price: 4.30, soldQuantity: 5}, {name: 'potion', price: 3.57, soldQuantity: 3}]))
