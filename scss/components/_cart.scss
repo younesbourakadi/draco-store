@@ -1,11 +1,9 @@
 .cart {
-    position: relative;
-    z-index: 10;
-    width: 25%;
-    height: calc(85vh - 2rem);
+    position: sticky;
     background-image: url(/img/parchemin.png);
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
     // margin: 1rem 0rem 1rem 2rem;
     &__ttl{
         color: $lightgrey;

@@ -4,8 +4,8 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    border: 2px solid blue;
     background-color: $beige;
+    border-radius: 1rem;
     &__ttl{
         text-align: center;
         padding-top: 1rem;
@@ -13,7 +13,7 @@
     &__img{
         width: 50%;
         margin: 1rem auto;
-        border: 2px solid salmon;
+        // border: 2px solid salmon;
     }
     &__img--cart{
         height: 3rem;
