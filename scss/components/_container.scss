@@ -2,15 +2,16 @@
     display: flex;
     flex-direction: column;
     flex-wrap:wrap ;
-    // border: 2px solid yellow;
     background-color: $brown;
-    margin: 0 2rem;
+    margin: 0 3rem;
     &__ttl{
         color: $beige;
         font-size: 2.5rem;
-        margin: 1rem;
+        margin: 2rem 0 0 0;
+        text-align: center;
     }
     &__flex{
         display: flex;
+        position: relative;
     }
 }

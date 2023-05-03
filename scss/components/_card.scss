@@ -1,12 +1,13 @@
 
 .card {
-    width: 10rem;
+    width: 25%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     background-color: $beige;
-    border-radius: 1rem;
     position: relative;
+    border: 4mm ridge rgba(255,215,0, 0.6);
+    box-shadow: 5px 3px 3px black;
     &__ttl{
         text-align: center;
         font-size: 1.5rem;
@@ -16,9 +17,6 @@
         width: 50%;
         margin: 1rem auto;
         // border: 2px solid salmon;
-    }
-    &__img--cart{
-        height: 2rem;
     }
     &__price{
         display: flex;
@@ -35,13 +33,17 @@
     }
     &__btn{
         background: $cta;
-        width: 3rem;
+        // width: 3rem;
         border: none;
         margin: 0 auto;
         padding: .5rem;
         border-radius: 50px;
         position: absolute;
         bottom: -2rem;
-        left: 3.5rem;
+        left: 5rem;
+        box-shadow: 5px 3px 3px black;
+    }
+    &__img--cart{
+        height: 2rem;
     }
 }
