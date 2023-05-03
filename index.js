@@ -52,6 +52,11 @@ function addItemToCart(itemName, soltQuantity, price, arr) {
     cart.push(item);
 }
 
+// function addItemToCart(itemName, soldQuantity, price) {
+//   const item = { name: itemName, price, soldQuantity };
+//   cart.push(item);
+// }
+
 
 function getItemPrice(arr, itemName){
   let price = 0;
@@ -63,6 +68,10 @@ function getItemPrice(arr, itemName){
   return price;
 }
 
+// function getItemPrice(items, itemName) {
+//   const item = items.find(i => i.name === itemName);
+//   return item ? item.price : 0;
+// }
 
 addItemToCart ('potion', 8, getItemPrice (articles, 'potion'), articles);
 // console.log (cart);
