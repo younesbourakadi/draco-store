@@ -33,6 +33,7 @@ ul {
   height: 15vh;
   display: flex;
   align-items: center;
+  width: 70%;
 }
 .nav__img {
   width: 7rem;
@@ -130,7 +131,7 @@ ul {
   border: 2px solid yellow;
   width: calc(75% - 2rem);
   background-color: #6C491F;
-  margin: 2rem;
+  margin: 0 2rem;
 }
 .container__ttl {
   color: #FCF0DC;
@@ -148,7 +149,7 @@ ul {
   list-style-type: none;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: 2rem;
+  gap: 3rem;
   padding: 2rem;
   justify-content: center;
 }

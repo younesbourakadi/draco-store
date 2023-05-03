@@ -1,34 +1,3 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap:wrap ;
-    border: 2px solid yellow;
-    width: calc(75% - 2rem);
-    background-color: $brown;
-    margin: 2rem;
-    &__ttl{
-        color: $beige;
-        font-size: 2.5rem;
-        margin: 1rem;
-
-    }
-    &__flex{
-        display: flex;
-    }
-}
-
-.menu {
-    gap: 2rem;
-    border: 2px solid red;
-    display: flex;
-    list-style-type: none;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 2rem;
-    padding: 2rem;
-    justify-content: center;
-}
-
 
 .card {
     width: 10rem;
