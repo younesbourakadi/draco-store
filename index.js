@@ -47,9 +47,9 @@ function getAllAvailableStoreItems(arr) {
     return arr.filter(item => item.quantity > 0)
 }
 
-function addItemToCart(itemName, soltQuantity, price, arr) {
-    let item = { name: itemName, price: price, soltQuantity: soltQuantity }
-    cart.push(item);
+function addItemToCart(itemName, soldQuantity, price) {
+  const item = { name: itemName, price, soldQuantity };
+  cart.push(item);
 }
 
 // function addItemToCart(itemName, soldQuantity, price) {
@@ -68,10 +68,11 @@ function getItemPrice(arr, itemName) {
     return price;
 }
 
-// function getItemPrice(items, itemName) {
-//   const item = items.find(i => i.name === itemName);
-//   return item ? item.price : 0;
-// }
+function convertGoldToSilverAndGold(price) {
+  let gold = Math.floor(price);
+  let silver = Math.round((price - gold) * 10);
+  return { gold , silver };
+}
 
 // function removeItemFromCart(arr, itemName) {
 //     cart.splice(itemName, 1);
