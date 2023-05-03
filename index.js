@@ -47,34 +47,19 @@ function getAllAvailableStoreItems(arr) {
     return arr.filter(item => item.quantity > 0)
 }
 
-function addItemToCart(itemName, soltQuantity, price, arr) {
-    let item = { name: itemName, price: price, soltQuantity: soltQuantity }
-    cart.push(item);
+function addItemToCart(itemName, soldQuantity, price) {
+  const item = { name: itemName, price, soldQuantity };
+  cart.push(item);
 }
 
-// function addItemToCart(itemName, soldQuantity, price) {
-//   const item = { name: itemName, price, soldQuantity };
-//   cart.push(item);
-// }
-
-
-function getItemPrice(arr, itemName){
-  let price = 0;
-  arr.forEach(i => {
-    if(i.name == itemName) {
-      price = i.price;
-    }
-  });
-  return price;
+function getItemPrice(items, itemName) {
+  const item = items.find(i => i.name === itemName);
+  return item ? item.price : 0;
 }
 
-// function getItemPrice(items, itemName) {
-//   const item = items.find(i => i.name === itemName);
-//   return item ? item.price : 0;
-// }
-
-addItemToCart ('potion', 8, getItemPrice (articles, 'potion'), articles);
-// console.log (cart);
-
-addItemToCart ('arrow', 18, getItemPrice (articles, 'arrow'), articles);
-console.log (cart);
+function convertGoldToSilverAndGold(items, itemName) {
+  let price = getItemPrice(items, itemName);
+  let gold = Math.floor(price);
+  let silver = Math.round((price - gold) * 10);
+  return { gold , silver };
+}
