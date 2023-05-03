@@ -1,0 +1,16 @@
+.nav{
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    &__img{
+        width: 7rem;
+        padding-left: 2rem;
+    }
+    &__ttl{
+        color: $brown;
+        font-size: 3rem;
+        padding-left: 2rem;
+        font-family: 'Uncial Antiqua';
+
+    }
+}

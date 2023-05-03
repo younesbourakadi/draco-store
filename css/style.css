@@ -1,1 +1,125 @@
-/*# sourceMappingURL=style.css.map */
+:root {
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+ul,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #FCF0DC;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+.nav {
+  height: 15vh;
+  display: flex;
+  align-items: center;
+}
+.nav__img {
+  width: 7rem;
+  padding-left: 2rem;
+}
+.nav__ttl {
+  color: #6C491F;
+  font-size: 3rem;
+  padding-left: 2rem;
+  font-family: "Uncial Antiqua";
+}
+
+.cart {
+  position: relative;
+  z-index: 10;
+  width: 25%;
+  height: calc(85vh - 2rem);
+  background-image: url(/img/parchemin.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 1rem 0rem 1rem 2rem;
+}
+.cart__ttl {
+  color: #FEFDFB;
+  font-size: 2.5rem;
+  text-align: center;
+  padding-top: 1.5rem;
+}
+.cart__wrap {
+  color: #FEFDFB;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 1.2rem;
+  position: absolute;
+  width: 100%;
+  bottom: 3rem;
+}
+.cart__pieces {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.cart__total {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.cart__img {
+  width: 3rem;
+}
+
+.itm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1rem;
+  color: #FEFDFB;
+  gap: 2rem;
+}
+.itm__wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.itm__img {
+  width: 4rem;
+}
+.itm__img--bin {
+  width: 2rem;
+}
+.itm__ttl {
+  font-size: 1.3rem;
+}
+.itm__qty {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+}
+.itm__input {
+  width: 3rem;
+  border-radius: 0.2rem;
+  border: none;
+}
+.itm__button {
+  border: none;
+  background: none;
+  font-size: 2.2rem;
+}/*# sourceMappingURL=style.css.map */
