@@ -1,0 +1,37 @@
+
+.card {
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 2px solid blue;
+    background-color: $beige;
+    &__ttl{
+        text-align: center;
+        padding-top: 1rem;
+    }
+    &__img{
+        width: 50%;
+        margin: 1rem auto;
+        border: 2px solid salmon;
+    }
+    &__img--cart{
+        height: 3rem;
+    }
+    &__price{
+        display: flex;
+        justify-content: space-around;
+    }
+    &__sc{
+        font-size: 0.5rem;
+        font-size: 1rem;
+    } 
+    &__gc{
+        font-size: 0.5rem;
+        font-size: 1rem;
+    }
+    &__btn{
+        background: none;
+        border: none;
+    }
+}
