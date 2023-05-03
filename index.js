@@ -41,12 +41,14 @@ const articles = [
     }
 ]
 
-let cart = [{
-    name: "sword",
-    price: 10.80,
-    soldQuantity: 5,
-}
+let cart = [
+    {
+        name: "sword",
+        price: 10.80,
+        quantity: 1,
+    }
 ]
+
 
 function getAllAvailableStoreItems(arr) {
     return arr.filter(item => item.quantity > 0)
@@ -119,3 +121,26 @@ cartTotalHT.innerText = getCartTotal(cart).toLocaleString("fr-FR", {
   maximumFractionDigits: 2
 });
 
+
+
+
+const itemList = document.getElementById("item-list");
+
+for (let i = 0; i < articles.length; i++) {
+  if (articles[i].quantity > 0) {
+    const item = document.createElement("li");
+    item.className = "card";
+    item.innerHTML = `
+      <h3 class="card__ttl">${articles[i].name}</h3>
+      <img class="card__img" src="./img/${articles[i].name}.png" />
+      <div class="card__price">
+        <span class="card__sc">$${articles[i].price.toFixed(2)}</span>
+        <span class="card__gc">SG</span>
+      </div>
+      <button class="card__btn"> 
+        <img src="img/cart.png" alt="panier" class="card__img--cart">
+      </button>
+    `;
+    itemList.appendChild(item);
+  }
+}

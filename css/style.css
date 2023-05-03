@@ -33,7 +33,9 @@ ul {
   height: 15vh;
   display: flex;
   align-items: center;
-  width: 70%;
+  width: 100%;
+  padding: 1rem;
+  background-color: #FCF0DC;
 }
 .nav__img {
   width: 7rem;
@@ -48,9 +50,6 @@ ul {
 
 .cart {
   position: relative;
-  z-index: 10;
-  width: 25%;
-  height: calc(85vh - 2rem);
   background-image: url(/img/parchemin.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -93,6 +92,7 @@ ul {
   padding-top: 1rem;
   color: #FEFDFB;
   gap: 2rem;
+  width: 100%;
 }
 .itm__wrap {
   display: flex;
@@ -127,8 +127,6 @@ ul {
 .container {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  border: 2px solid yellow;
   width: calc(75% - 2rem);
   background-color: #6C491F;
   margin: 0 2rem;
@@ -144,7 +142,6 @@ ul {
 
 .menu {
   gap: 2rem;
-  border: 2px solid red;
   display: flex;
   list-style-type: none;
   flex-wrap: wrap;
@@ -152,6 +149,7 @@ ul {
   gap: 3rem;
   padding: 2rem;
   justify-content: center;
+  background-color: #6C491F;
 }
 
 .card {
@@ -159,7 +157,6 @@ ul {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  border: 2px solid blue;
   background-color: #FCF0DC;
 }
 .card__ttl {
@@ -169,7 +166,6 @@ ul {
 .card__img {
   width: 50%;
   margin: 1rem auto;
-  border: 2px solid salmon;
 }
 .card__img--cart {
   height: 3rem;
