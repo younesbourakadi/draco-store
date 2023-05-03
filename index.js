@@ -108,8 +108,14 @@ function getCartTotalVAT(cart) {
 
 
 
-const cartTotalDisplay = document.getElementById("cart__total--display");
-cartTotalDisplay.innerText = getCartTotalVAT(cart).toLocaleString("fr-FR", {
+const cartTotalTTC = document.getElementById("cart__total-TTC");
+cartTotalTTC.innerText = getCartTotalVAT(cart).toLocaleString("fr-FR", {
+  maximumFractionDigits: 2
+});
+
+
+const cartTotalHT = document.getElementById("cart__total-HT");
+cartTotalHT.innerText = getCartTotal(cart).toLocaleString("fr-FR", {
   maximumFractionDigits: 2
 });
 
