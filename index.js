@@ -61,13 +61,7 @@ const articles = [
     }
 ]
 
-let cart = [
-    {
-        name: "sword",
-        price: 10.80,
-        quantity: 1,
-    }
-]
+let cart = []
 
 
 function getAllAvailableStoreItems(arr) {
@@ -76,9 +70,14 @@ function getAllAvailableStoreItems(arr) {
 
 
 function addItemToCart(name, quantity, price) {
-    const item = { name, price, quantity };
-    cart.push(item);
+  const item = cart.find(item => item.name === name);
+  if (item) {
+    item.quantity += quantity;
+  } else {
+    cart.push({ name, price, quantity });
+  }
 }
+
 
 function getItemPrice(items, itemName) {
     const item = items.find(i => i.name === itemName);
@@ -103,55 +102,49 @@ function removeItemFromCart(itemName) {
 }
 
 function changeQuantityInCart(num, name) {
-    let i = cart.filter(item => item.name === name)
-    i[0].soldQuantity = num;
+  let item = cart.find(item => item.name === name);
+  if (item) {
+    item.quantity = num;
+  }
 }
 
 function addQuantityInCart(name) {
-    let i = cart.filter(item => item.name === name)
-    i[0].soldQuantity++;
+  const matchingItems = cart.filter(item => item.name === name);
+  if (matchingItems.length === 0) {
+    return;
+  }
+  matchingItems[0].quantity++;
 }
 
-
 function removeQuantityInCart(name) {
-    let i = cart.filter(item => item.name === name)
-    if (i[0].quantity > 0) {
-        i[0].quantity--;
-    }
+  const item = cart.find(item => item.name === name);
+  if (item && item.quantity > 0) {
+    item.quantity--;
+    return item.quantity;
+  }
+  return 0;
 }
 
 function getCartTotal(cart) {
     return cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0);
 }
 
-console.log(getCartTotal(cart))
-
 function getCartTotalVAT(cart) {
     const vat = 1.13;
     return Number((getCartTotal(cart) * vat).toFixed(2));
-
 }
 
-
-
-
-
-
 const cartTotalTTC = document.getElementById("cart__total-TTC");
+const cartTotalHT = document.getElementById("cart__total-HT");
+const itemList = document.getElementById("item-list");
+
 cartTotalTTC.innerText = getCartTotalVAT(cart).toLocaleString("fr-FR", {
   maximumFractionDigits: 2
 });
 
-
-const cartTotalHT = document.getElementById("cart__total-HT");
 cartTotalHT.innerText = getCartTotal(cart).toLocaleString("fr-FR", {
   maximumFractionDigits: 2
 });
-
-
-
-
-const itemList = document.getElementById("item-list");
 
 for (let i = 0; i < articles.length; i++) {
   if (articles[i].quantity > 0) {
@@ -159,23 +152,79 @@ for (let i = 0; i < articles.length; i++) {
     item.className = "card";
     item.innerHTML = `
       <h3 class="card__ttl">${articles[i].name}</h3>
-      <img class="card__img" src="./img/${articles[i].name}.png" />
+      <img class="card__img" src="./img/${articles[i].name}.png" id="${articles[i].name}" data-img-name="${articles[i].name}">
       <div class="card__price">
         <span class="card__sc">$${articles[i].price.toFixed(2)}</span>
         <span class="card__gc">SG</span>
       </div>
-      <button class="card__btn"> 
-        <img src="img/cart.png" alt="panier" class="card__img--cart">
+      <button class="card__btn" > 
+        <img src="img/cart.png" alt="panier" class="card__img--cart" id="add-to-cart">
       </button>
     `;
     itemList.appendChild(item);
   }
 }
-console.log(getCartTotalVAT(cart))
+
 const { gold, silver } = convertGoldToSilverAndGold(getCartTotalVAT(cart));
 const cartSilver = document.getElementById("cart__silver");
 const cartGold = document.getElementById("cart__gold");
 cartGold.innerText = gold;
 cartSilver.innerText = silver;
 
+const cartList = document.getElementById("cart");
+function renderCart() {
+  cartList.innerHTML = '';
+  cart.forEach(item => {
+    const cartItem = document.createElement("article");
+    cartItem.className = "itm";
+    cartItem.innerHTML = `
+      <div class="itm__wrap">
+        <img src="./img/${item.name}.png" alt="${item.name}" class="itm__img">
+        <h3 class="itm__ttl">${item.name}</h3>
+      </div>
+      <div class="itm__qty">
+        <button class="itm__button itm__button--remove" id="dec">-</button>
+        <input type="number" class="itm__input" value="${item.quantity}" min="1" max="10" id="input">
+        <button class="itm__button itm__button--add" id="inc">+</button>
+      </div>
+      <button class="itm__button">
+        <img src="./img/bin.png" alt="poubelle" class="itm__img--bin" id="remove">
+      </button>
+    `;
 
+    const removeButton = cartItem.querySelector('#remove');
+    removeButton.addEventListener("click", () => {
+      removeItemFromCart(item.name);
+      cartItem.remove();
+    });
+
+    const inputField = cartItem.querySelector('#input');
+    inputField.addEventListener("change", () => {
+      const newQuantity = inputField.value;
+      changeQuantityInCart(newQuantity, item.name);
+    });
+
+    const addButton = cartItem.querySelector('#inc');
+    addButton.addEventListener("click", () => {
+      addQuantityInCart(item.name);
+      inputField.value = parseInt(inputField.value) + 1;
+    });
+
+    const decButton = cartItem.querySelector('#dec');
+    decButton.addEventListener('click', () => {
+      removeQuantityInCart(item.name);
+      inputField.value = parseInt(inputField.value) > 0 ? parseInt(inputField.value) - 1 : 0;
+    });
+
+    cartList.appendChild(cartItem);
+  });
+}
+
+const buttons = document.querySelectorAll('#add-to-cart');
+buttons.forEach(button => {
+  button.addEventListener('click', event => {
+    const imgName = event.target.parentElement.parentElement.querySelector('.card__img').dataset.imgName;
+    addItemToCart(imgName, 1, getItemPrice(articles, imgName));
+    renderCart();
+  });
+});
