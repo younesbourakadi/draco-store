@@ -64,6 +64,7 @@ function convertGoldToSilverAndGold(items, itemName) {
   return { gold , silver };
 }
 
+
 function getCartTotal(cart){
   return cart.reduce((acc, curr) => acc + curr.price * curr.soldQuantity, 0);
 }
