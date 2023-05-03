@@ -12,6 +12,7 @@
         text-align: center;
         font-size: 1.5rem;
         padding-top: 1rem;
+        text-transform: capitalize;
     }
     &__img{
         width: 50%;
@@ -23,17 +24,12 @@
         justify-content: space-around;
         padding-bottom: 2rem;
     }
-    &__sc{
-        font-size: 0.5rem;
-        font-size: 1rem;
-    } 
-    &__gc{
-        font-size: 0.5rem;
-        font-size: 1rem;
+    &__sc, &__gc{
+        font-size: 1.2rem;
+        font-weight: 500;
     }
     &__btn{
         background: $cta;
-        // width: 3rem;
         border: none;
         margin: 0 auto;
         padding: .5rem;

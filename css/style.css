@@ -56,13 +56,15 @@ ul {
   height: 100vh;
 }
 .cart__ttl {
-  color: #FEFDFB;
-  font-size: 2.5rem;
+  color: #6C491F;
+  font-size: 2rem;
   text-align: center;
   padding-top: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 0.2rem solid #6C491F;
 }
 .cart__wrap {
-  color: #FEFDFB;
+  color: #6C491F;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -91,7 +93,7 @@ ul {
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  color: #FEFDFB;
+  color: #6C491F;
   gap: 2rem;
 }
 .itm__wrap {
@@ -165,6 +167,7 @@ ul {
   text-align: center;
   font-size: 1.5rem;
   padding-top: 1rem;
+  text-transform: capitalize;
 }
 .card__img {
   width: 50%;
@@ -175,13 +178,9 @@ ul {
   justify-content: space-around;
   padding-bottom: 2rem;
 }
-.card__sc {
-  font-size: 0.5rem;
-  font-size: 1rem;
-}
-.card__gc {
-  font-size: 0.5rem;
-  font-size: 1rem;
+.card__sc, .card__gc {
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 .card__btn {
   background: #A80126;
