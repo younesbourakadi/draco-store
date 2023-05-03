@@ -82,7 +82,8 @@ function addQuantityInCart(name) {
     let i = cart.filter(item => item.name === name)
     i[0].soldQuantity++;
 }
-git add *
+
+
 function removeQuantityInCart(name) {
     let i = cart.filter(item => item.name === name)
     if (i[0].soldQuantity > 0) {
