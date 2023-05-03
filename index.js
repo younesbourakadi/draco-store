@@ -41,12 +41,14 @@ const articles = [
     }
 ]
 
-let cart = [{
-    name: "sword",
-    price: 10.80,
-    soldQuantity: 0,
-}
+let cart = [
+    {
+        name: "sword",
+        price: 10.80,
+        quantity: 1,
+    }
 ]
+
 
 function getAllAvailableStoreItems(arr) {
     return arr.filter(item => item.quantity > 0)
@@ -105,4 +107,11 @@ function getCartTotalVAT(cart) {
 
 
 
+
+
+
+const cartTotalDisplay = document.getElementById("cart__total--display");
+cartTotalDisplay.innerText = getCartTotalVAT(cart).toLocaleString("fr-FR", {
+  maximumFractionDigits: 2
+});
 
