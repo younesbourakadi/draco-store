@@ -1,37 +1,47 @@
 
 .card {
-    width: 10rem;
+    width: 25%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    // border: 2px solid blue;
+
     background-color: $beige;
+    position: relative;
+    border: 4mm ridge rgba(255,215,0, 0.6);
+    box-shadow: 5px 3px 3px black;
     &__ttl{
         text-align: center;
+        font-size: 1.5rem;
         padding-top: 1rem;
+        text-transform: capitalize;
     }
     &__img{
         width: 50%;
         margin: 1rem auto;
         // border: 2px solid salmon;
-    }
-    &__img--cart{
-        height: 3rem;
+
     }
     &__price{
         display: flex;
         justify-content: space-around;
+        padding-bottom: 2rem;
     }
-    &__sc{
-        font-size: 0.5rem;
-        font-size: 1rem;
-    } 
-    &__gc{
-        font-size: 0.5rem;
-        font-size: 1rem;
+    &__sc, &__gc{
+        font-size: 1.2rem;
+        font-weight: 500;
     }
     &__btn{
-        background: none;
+        background: $cta;
         border: none;
+        margin: 0 auto;
+        padding: .5rem;
+        border-radius: 50px;
+        position: absolute;
+        bottom: -2rem;
+        left: 5rem;
+        box-shadow: 5px 3px 3px black;
+    }
+    &__img--cart{
+        height: 2rem;
     }
 }
