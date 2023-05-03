@@ -55,8 +55,8 @@ function getAllAvailableStoreItems(arr) {
 }
 
 
-function addItemToCart(name, soldQuantity, price) {
-    const item = { name, price, soldQuantity };
+function addItemToCart(name, quantity, price) {
+    const item = { name, price, quantity };
     cart.push(item);
 }
 
@@ -65,10 +65,16 @@ function getItemPrice(items, itemName) {
     return item ? item.price : 0;
 }
 
-function convertGoldToSilverAndGold(items, itemName) {
-    let price = getItemPrice(items, itemName);
-    let gold = Math.floor(price);
-    let silver = Math.round((price - gold) * 10);
+// function convertGoldToSilverAndGold(items, itemName) {
+//     let price = getItemPrice(items, itemName);
+//     let gold = Math.floor(price);
+//     let silver = Math.round((price - gold) * 10);
+//     return { gold, silver };
+// }
+
+function convertGoldToSilverAndGold(total) {
+    let gold = Math.floor(total);
+    let silver = Math.round((total - gold) * 10);
     return { gold, silver };
 }
 
@@ -89,15 +95,16 @@ function addQuantityInCart(name) {
 
 function removeQuantityInCart(name) {
     let i = cart.filter(item => item.name === name)
-    if (i[0].soldQuantity > 0) {
-        i[0].soldQuantity--;
+    if (i[0].quantity > 0) {
+        i[0].quantity--;
     }
 }
 
 function getCartTotal(cart) {
-    return cart.reduce((acc, curr) => acc + curr.price * curr.soldQuantity, 0);
+    return cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0);
 }
 
+console.log(getCartTotal(cart))
 
 function getCartTotalVAT(cart) {
     const vat = 1.13;
@@ -144,3 +151,11 @@ for (let i = 0; i < articles.length; i++) {
     itemList.appendChild(item);
   }
 }
+console.log(getCartTotalVAT(cart))
+const { gold, silver } = convertGoldToSilverAndGold(getCartTotalVAT(cart));
+const cartSilver = document.getElementById("cart__silver");
+const cartGold = document.getElementById("cart__gold");
+cartGold.innerText = gold;
+cartSilver.innerText = silver;
+
+
