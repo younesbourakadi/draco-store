@@ -1,27 +1,35 @@
-.menu {
-  border: 2px solid red;
-  background-color: #6C491F;
-  display: flex;
-  list-style-type: none;
-}
-
 .container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   border: 2px solid yellow;
+  width: calc(75% - 2rem);
 }
 .container__ttl {
   color: #ECCFAD;
 }
 
+.menu {
+  gap: 2rem;
+  border: 2px solid red;
+  background-color: #6C491F;
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
 .card {
+  width: 15rem;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   border: 2px solid blue;
-  width: 10%;
-  height: 10%;
   background-color: #ECCFAD;
 }
 .card__img {
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
   border: 2px solid salmon;
 }
 .card__price {
@@ -34,10 +42,10 @@
   text-align: center;
 }
 .card__sc {
-  font-size: 0.5rem;
+  font-size: 1rem;
 }
 .card__gc {
-  font-size: 0.5rem;
+  font-size: 1rem;
 }
 .card__btn {
   height: 1rem;
