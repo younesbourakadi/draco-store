@@ -1,8 +1,7 @@
 .container {
     display: flex;
     flex-direction: column;
-    flex-wrap:wrap ;
-    border: 2px solid yellow;
+    // border: 2px solid yellow;
     width: calc(75% - 2rem);
     background-color: $brown;
     margin: 0 2rem;
