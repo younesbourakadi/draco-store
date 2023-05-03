@@ -40,7 +40,7 @@ ul {
 }
 .nav__ttl {
   color: #6C491F;
-  font-size: 2.5rem;
+  font-size: 3rem;
   padding-left: 2rem;
   font-family: "Uncial Antiqua";
 }
@@ -48,7 +48,7 @@ ul {
 .cart {
   position: relative;
   z-index: 10;
-  width: 30%;
+  width: 25%;
   height: calc(85vh - 2rem);
   background-image: url(/img/parchemin.png);
   background-repeat: no-repeat;
@@ -57,7 +57,7 @@ ul {
 }
 .cart__ttl {
   color: #FEFDFB;
-  font-size: 2rem;
+  font-size: 2.5rem;
   text-align: center;
   padding-top: 1.5rem;
 }
@@ -68,13 +68,22 @@ ul {
   text-align: center;
   font-size: 1.2rem;
   position: absolute;
-  bottom: 2rem;
-  left: 3rem;
+  width: 100%;
+  bottom: 3rem;
 }
 .cart__pieces {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   justify-content: center;
+  align-items: center;
+}
+.cart__total {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.cart__img {
+  width: 3rem;
 }
 
 .itm {
@@ -97,10 +106,20 @@ ul {
   width: 2rem;
 }
 .itm__ttl {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 .itm__qty {
   display: flex;
   gap: 0.5rem;
   font-size: 1.2rem;
+}
+.itm__input {
+  width: 3rem;
+  border-radius: 0.2rem;
+  border: none;
+}
+.itm__button {
+  border: none;
+  background: none;
+  font-size: 2.2rem;
 }/*# sourceMappingURL=style.css.map */
