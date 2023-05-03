@@ -1,0 +1,51 @@
+
+
+.menu {
+    border: 2px solid red;
+    background-color: $brown;
+    display: flex;
+    list-style-type: none;
+}
+
+.container {
+    border: 2px solid yellow;
+    &__ttl{
+        color: $beige;
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid blue;
+    width: 10%;
+    height: 10%;
+    background-color: $beige;
+    &__img{
+        width: 100%;
+        border: 2px solid salmon;
+    }
+    &__price{
+        height: 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__ttl{
+        font-size: 1rem;
+        text-align: center;
+    }
+    &__sc{
+        font-size: 0.5rem;
+    } 
+    &__gc{
+        font-size: 0.5rem;
+    }
+    &__btn{
+       height: 1rem;
+       background: none;
+       border: none;
+    }
+    &__logo{
+        height: 1rem;
+    }
+}

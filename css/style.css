@@ -1,1 +1,68 @@
-/*# sourceMappingURL=style.css.map */
+.menu {
+  border: 2px solid red;
+  background-color: #6C491F;
+  display: flex;
+  list-style-type: none;
+}
+
+.container {
+  border: 2px solid yellow;
+}
+.container__ttl {
+  color: #ECCFAD;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid blue;
+  width: 10%;
+  height: 10%;
+  background-color: #ECCFAD;
+}
+.card__img {
+  width: 100%;
+  border: 2px solid salmon;
+}
+.card__price {
+  height: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+.card__ttl {
+  font-size: 1rem;
+  text-align: center;
+}
+.card__sc {
+  font-size: 0.5rem;
+}
+.card__gc {
+  font-size: 0.5rem;
+}
+.card__btn {
+  height: 1rem;
+  background: none;
+  border: none;
+}
+.card__logo {
+  height: 1rem;
+}
+
+:root {
+  font-size: 16px;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, div, span, ul, li,
+section, article, aside, body {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}/*# sourceMappingURL=style.css.map */
