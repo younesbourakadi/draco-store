@@ -10,7 +10,7 @@ const articles = [
         quantity: 7,
     },
     {
-        name: "arrow",
+        name: "flèche",
         price: 4.50,
         quantity: 46,
     },
@@ -35,29 +35,29 @@ const articles = [
         quantity: 36,
     },
     {
-        name: "sword",
+        name: "épée",
         price: 10.80,
         quantity: 1,
     },
     {
-        name: "sword",
-        price: 10.80,
+        name: "luth",
+        price: 8.20,
+        quantity: 7,
+    },
+    {
+        name: "masse",
+        price: 13.80,
         quantity: 1,
     },
     {
-        name: "sword",
-        price: 10.80,
+        name: "torche",
+        price: 14.80,
         quantity: 1,
     },
     {
-        name: "sword",
-        price: 10.80,
-        quantity: 1,
-    },
-    {
-        name: "sword",
-        price: 10.80,
-        quantity: 1,
+        name: "bouclier",
+        price: 11.80,
+        quantity: 8,
     }
 ]
 
