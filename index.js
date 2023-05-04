@@ -59,9 +59,10 @@ const articles = [
         price: 11.80,
         quantity: 8,
     }
-]
-
-let cart = []
+  ]
+  
+  
+  let cart = []
 
 
 function getAllAvailableStoreItems(arr) {
@@ -171,13 +172,14 @@ const cartGold = document.getElementById("cart__gold");
 cartGold.innerText = gold;
 cartSilver.innerText = silver;
 
-const cartList = document.getElementById("cart");
+const cartList = document.getElementById("cart__list");
 function renderCart() {
   cartList.innerHTML = '';
   cart.forEach(item => {
     const cartItem = document.createElement("article");
     cartItem.className = "itm";
     cartItem.innerHTML = `
+    
       <div class="itm__wrap">
         <img src="./img/${item.name}.png" alt="${item.name}" class="itm__img">
         <h3 class="itm__ttl">${item.name}</h3>

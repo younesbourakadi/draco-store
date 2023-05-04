@@ -136,7 +136,7 @@ ul {
 }
 .container__ttl {
   color: #FCF0DC;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   margin: 2rem 0 0 0;
   text-align: center;
 }
@@ -167,7 +167,7 @@ ul {
 }
 .card__ttl {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
   padding-top: 1rem;
   text-transform: capitalize;
 }
@@ -181,8 +181,8 @@ ul {
   padding-bottom: 2rem;
 }
 .card__sc, .card__gc {
-  font-size: 1.2rem;
-  font-weight: 500;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 .card__btn {
   background: #A80126;
@@ -190,11 +190,10 @@ ul {
   margin: 0 auto;
   padding: 0.5rem;
   border-radius: 50px;
-  position: absolute;
-  bottom: -2rem;
-  left: 5rem;
+  width: 5rem;
+  margin-bottom: -2rem;
   box-shadow: 5px 3px 3px black;
 }
 .card__img--cart {
-  height: 2rem;
+  height: 2.5rem;
 }/*# sourceMappingURL=style.css.map */
