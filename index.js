@@ -1,66 +1,68 @@
 const articles = [
-  {
-    name: "arbalète",
-    price: 9.80,
-    quantity: 10,
-  },
-  {
-    name: "armure",
-    price: 7.90,
-    quantity: 7,
-  },
-  {
-    name: "flèche",
-    price: 4.50,
-    quantity: 46,
-  },
-  {
-    name: "calice",
-    price: 3.80,
-    quantity: 26,
-  },
-  {
-    name: "carte",
-    price: 2.50,
-    quantity: 50,
-  },
-  {
-    name: "casque",
-    price: 9.90,
-    quantity: 8,
-  },
-  {
-    name: "potion",
-    price: 5.60,
-    quantity: 36,
-  },
-  {
-    name: "épée",
-    price: 10.80,
-    quantity: 1,
-  },
-  {
-    name: "luth",
-    price: 8.20,
-    quantity: 7,
-  },
-  {
-    name: "masse",
-    price: 13.80,
-    quantity: 1,
-  },
-  {
-    name: "torche",
-    price: 14.80,
-    quantity: 1,
-  },
-  {
-    name: "bouclier",
-    price: 11.80,
-    quantity: 8,
-  }
-]
 
+    {
+        name: "arbalète",
+        price: 9.80,
+        quantity: 2,
+    },
+    {
+        name: "armure",
+        price: 7.90,
+        quantity: 7,
+    },
+    {
+        name: "flèche",
+        price: 4.50,
+        quantity: 46,
+    },
+    {
+        name: "calice",
+        price: 3.80,
+        quantity: 26,
+    },
+    {
+        name: "carte",
+        price: 2.50,
+        quantity: 50,
+    },
+    {
+        name: "casque",
+        price: 9.90,
+        quantity: 8,
+    },
+    {
+        name: "potion",
+        price: 5.60,
+        quantity: 36,
+    },
+    {
+        name: "épée",
+        price: 10.80,
+        quantity: 8,
+    },
+    {
+        name: "luth",
+        price: 8.20,
+        quantity: 7,
+    },
+    {
+        name: "masse",
+        price: 13.80,
+        quantity: 5,
+    },
+    {
+        name: "torche",
+        price: 14.80,
+        quantity: 16,
+    },
+    {
+        name: "bouclier",
+        price: 11.80,
+        quantity: 0,
+    }
+  ]
+  
+  
 
 let cart = []
 
@@ -99,8 +101,15 @@ function convertGoldToSilverAndGold(total) {
 }
 
 function removeItemFromCart(itemName) {
+
+if (cart.length === 1) {
+  cart = [];
+} else {
   cart.splice(itemName, 1);
 }
+
+}
+
 
 function changeQuantityInCart(num, name) {
   let item = cart.find(item => item.name === name);
@@ -110,11 +119,11 @@ function changeQuantityInCart(num, name) {
 }
 
 function addQuantityInCart(name) {
-  const matchingItems = cart.filter(item => item.name === name);
-  if (matchingItems.length === 0) {
+  const items = cart.filter(item => item.name === name);
+  if (items.length === 0) {
     return;
   }
-  matchingItems[0].quantity++;
+  items[0].quantity++;
 }
 
 function removeQuantityInCart(name) {
@@ -151,7 +160,7 @@ for (let i = 0; i < articles.length; i++) {
       <img class="card__img" src="./img/${articles[i].name}.png" id="${articles[i].name}" data-img-name="${articles[i].name}">
       <div class="card__price">
         <span class="card__sc">$${articles[i].price.toFixed(2)}</span>
-        <span class="card__gc">SG</span>
+        <span class="card__gc">stock : ${articles[i].quantity}</span>
       </div>
       <button class="card__btn" > 
         <img src="img/cart.png" alt="panier" class="card__img--cart" id="add-to-cart">
@@ -161,11 +170,29 @@ for (let i = 0; i < articles.length; i++) {
   }
 }
 
+for (let s = 0; s < articles.length ; s++) {
+  if (articles[s].quantity <= 3 && articles[s].quantity >= 1) {
+    // console.log (articles[s].quantity)
+    window.alert (`!!!!!! ${articles[s].name} a moin de 3 pièces en stock. !!!!!! `)
+  } else if ( articles[s].quantity === undefined || articles[s].quantity === 0)
+  window.alert (`!!!!!! STOCK EPUISE !!!!!! ${articles[s].name} !!!!!! STOCK EPUISE !!!!!! `)
+}
+
 const cartSilver = document.getElementById("cart__silver");
 const cartGold = document.getElementById("cart__gold");
 
 const cartList = document.getElementById("cart__list");
 function renderCart() {
+cartTotalTTC.innerText = getCartTotalVAT(cart).toLocaleString("fr-FR", {
+  maximumFractionDigits: 2
+});
+
+cartTotalHT.innerText = getCartTotal(cart).toLocaleString("fr-FR", {
+  maximumFractionDigits: 2
+});
+const { gold, silver } = convertGoldToSilverAndGold(getCartTotalVAT(cart));
+cartGold.innerText = gold;
+cartSilver.innerText = silver;
   cartList.innerHTML = '';
   cart.forEach(item => {
     const cartItem = document.createElement("article");
@@ -190,27 +217,36 @@ function renderCart() {
     removeButton.addEventListener("click", () => {
       removeItemFromCart(item.name);
       cartItem.remove();
+
+    renderCart()
+
     });
 
     const inputField = cartItem.querySelector("#input");
     inputField.addEventListener("change", () => {
       changeQuantityInCart(inputField.value, item.name);
+
+      renderCart()
     });
 
     const addButton = cartItem.querySelector("#inc");
     addButton.addEventListener("click", () => {
       addQuantityInCart(item.name);
       inputField.value = parseInt(inputField.value) + 1;
+    renderCart();
     });
 
     const decButton = cartItem.querySelector("#dec");
     decButton.addEventListener("click", () => {
       removeQuantityInCart(item.name);
       inputField.value = parseInt(inputField.value) > 0 ? parseInt(inputField.value) - 1 : 0;
-    });
 
+renderCart()
+
+    });
     cartList.appendChild(cartItem);
   });
+
 }
 
 const buttons = document.querySelectorAll("#add-to-cart");
@@ -220,21 +256,7 @@ buttons.forEach(button => {
     const imgName = event.target.parentElement.parentElement.querySelector(".card__img").dataset.imgName;
     addItemToCart(imgName, 1, getItemPrice(articles, imgName));
     renderCart();
-    cartTotalTTC.innerText = getCartTotalVAT(cart).toLocaleString("fr-FR", {
-      maximumFractionDigits: 2
-    });
 
-    cartTotalHT.innerText = getCartTotal(cart).toLocaleString("fr-FR", {
-      maximumFractionDigits: 2
-    });
-    const { gold, silver } = convertGoldToSilverAndGold(getCartTotalVAT(cart));
-    cartGold.innerText = gold;
-    cartSilver.innerText = silver;
-  });
-});
+  });});
 
-// vicool's function, sensitive to break
 
-function editCard() {
-  document.getElementById("#")
-}
