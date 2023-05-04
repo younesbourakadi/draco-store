@@ -59,9 +59,8 @@ ul {
   color: #6C491F;
   font-size: 2rem;
   text-align: center;
-  padding-top: 1.5rem;
-  padding-bottom: 1rem;
   border-bottom: 0.2rem solid #6C491F;
+  padding: 1.5rem 3rem 1rem 3rem;
 }
 .cart__wrap {
   color: #6C491F;
