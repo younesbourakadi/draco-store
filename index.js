@@ -1,72 +1,72 @@
 const articles = [
-    {
-        name: "arbalète",
-        price: 9.80,
-        quantity: 10,
-    },
-    {
-        name: "armure",
-        price: 7.90,
-        quantity: 7,
-    },
-    {
-        name: "flèche",
-        price: 4.50,
-        quantity: 46,
-    },
-    {
-        name: "calice",
-        price: 3.80,
-        quantity: 26,
-    },
-    {
-        name: "carte",
-        price: 2.50,
-        quantity: 50,
-    },
-    {
-        name: "casque",
-        price: 9.90,
-        quantity: 8,
-    },
-    {
-        name: "potion",
-        price: 5.60,
-        quantity: 36,
-    },
-    {
-        name: "épée",
-        price: 10.80,
-        quantity: 1,
-    },
-    {
-        name: "luth",
-        price: 8.20,
-        quantity: 7,
-    },
-    {
-        name: "masse",
-        price: 13.80,
-        quantity: 1,
-    },
-    {
-        name: "torche",
-        price: 14.80,
-        quantity: 1,
-    },
-    {
-        name: "bouclier",
-        price: 11.80,
-        quantity: 8,
-    }
-  ]
-  
-  
-  let cart = []
+  {
+    name: "arbalète",
+    price: 9.80,
+    quantity: 10,
+  },
+  {
+    name: "armure",
+    price: 7.90,
+    quantity: 7,
+  },
+  {
+    name: "flèche",
+    price: 4.50,
+    quantity: 46,
+  },
+  {
+    name: "calice",
+    price: 3.80,
+    quantity: 26,
+  },
+  {
+    name: "carte",
+    price: 2.50,
+    quantity: 50,
+  },
+  {
+    name: "casque",
+    price: 9.90,
+    quantity: 8,
+  },
+  {
+    name: "potion",
+    price: 5.60,
+    quantity: 36,
+  },
+  {
+    name: "épée",
+    price: 10.80,
+    quantity: 1,
+  },
+  {
+    name: "luth",
+    price: 8.20,
+    quantity: 7,
+  },
+  {
+    name: "masse",
+    price: 13.80,
+    quantity: 1,
+  },
+  {
+    name: "torche",
+    price: 14.80,
+    quantity: 1,
+  },
+  {
+    name: "bouclier",
+    price: 11.80,
+    quantity: 8,
+  }
+]
+
+
+let cart = []
 
 
 function getAllAvailableStoreItems(arr) {
-    return arr.filter(item => item.quantity > 0)
+  return arr.filter(item => item.quantity > 0)
 }
 
 
@@ -81,8 +81,8 @@ function addItemToCart(name, quantity, price) {
 
 
 function getItemPrice(items, itemName) {
-    const item = items.find(i => i.name === itemName);
-    return item ? item.price : 0;
+  const item = items.find(i => i.name === itemName);
+  return item ? item.price : 0;
 }
 
 // function convertGoldToSilverAndGold(items, itemName) {
@@ -93,13 +93,13 @@ function getItemPrice(items, itemName) {
 // }
 
 function convertGoldToSilverAndGold(total) {
-    let gold = Math.floor(total);
-    let silver = Math.round((total - gold) * 10);
-    return { gold, silver };
+  let gold = Math.floor(total);
+  let silver = Math.round((total - gold) * 10);
+  return { gold, silver };
 }
 
 function removeItemFromCart(itemName) {
-    cart.splice(itemName, 1);
+  cart.splice(itemName, 1);
 }
 
 function changeQuantityInCart(num, name) {
@@ -127,12 +127,12 @@ function removeQuantityInCart(name) {
 }
 
 function getCartTotal(cart) {
-    return cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0);
+  return cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0);
 }
 
 function getCartTotalVAT(cart) {
-    const vat = 1.13;
-    return Number((getCartTotal(cart) * vat).toFixed(2));
+  const vat = 1.13;
+  return Number((getCartTotal(cart) * vat).toFixed(2));
 }
 
 const cartTotalTTC = document.getElementById("cart__total-TTC");
@@ -220,15 +220,21 @@ buttons.forEach(button => {
     const imgName = event.target.parentElement.parentElement.querySelector(".card__img").dataset.imgName;
     addItemToCart(imgName, 1, getItemPrice(articles, imgName));
     renderCart();
-cartTotalTTC.innerText = getCartTotalVAT(cart).toLocaleString("fr-FR", {
-  maximumFractionDigits: 2
-});
+    cartTotalTTC.innerText = getCartTotalVAT(cart).toLocaleString("fr-FR", {
+      maximumFractionDigits: 2
+    });
 
-cartTotalHT.innerText = getCartTotal(cart).toLocaleString("fr-FR", {
-  maximumFractionDigits: 2
-});
-const { gold, silver } = convertGoldToSilverAndGold(getCartTotalVAT(cart));
-cartGold.innerText = gold;
-cartSilver.innerText = silver;
+    cartTotalHT.innerText = getCartTotal(cart).toLocaleString("fr-FR", {
+      maximumFractionDigits: 2
+    });
+    const { gold, silver } = convertGoldToSilverAndGold(getCartTotalVAT(cart));
+    cartGold.innerText = gold;
+    cartSilver.innerText = silver;
   });
 });
+
+// vicool's function, sensitive to break
+
+function editCard() {
+  document.getElementById("#")
+}

@@ -1,11 +1,11 @@
 .cart {
 
-    position: sticky;
-    top:0;
+    // position: sticky;
+    // top:0;
     background-image: url(/img/parchemin.png);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: auto;
        
 
     &__ttl{
@@ -22,7 +22,7 @@
         flex-direction: column;
         text-align: center;
         font-size: 1.2rem;
-        position: absolute;
+        // position: absolute;
         width: 100%;
         bottom: 3rem;
     }
