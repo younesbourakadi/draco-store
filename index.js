@@ -99,8 +99,13 @@ function convertGoldToSilverAndGold(total) {
 }
 
 function removeItemFromCart(itemName) {
-    cart.splice(itemName, 1);
+if (cart.length === 1) {
+  cart = [];
+} else {
+  cart.splice(itemName, 1);
 }
+}
+
 
 function changeQuantityInCart(num, name) {
   let item = cart.find(item => item.name === name);
@@ -110,11 +115,11 @@ function changeQuantityInCart(num, name) {
 }
 
 function addQuantityInCart(name) {
-  const matchingItems = cart.filter(item => item.name === name);
-  if (matchingItems.length === 0) {
+  const items = cart.filter(item => item.name === name);
+  if (items.length === 0) {
     return;
   }
-  matchingItems[0].quantity++;
+  items[0].quantity++;
 }
 
 function removeQuantityInCart(name) {
@@ -166,6 +171,16 @@ const cartGold = document.getElementById("cart__gold");
 
 const cartList = document.getElementById("cart__list");
 function renderCart() {
+cartTotalTTC.innerText = getCartTotalVAT(cart).toLocaleString("fr-FR", {
+  maximumFractionDigits: 2
+});
+
+cartTotalHT.innerText = getCartTotal(cart).toLocaleString("fr-FR", {
+  maximumFractionDigits: 2
+});
+const { gold, silver } = convertGoldToSilverAndGold(getCartTotalVAT(cart));
+cartGold.innerText = gold;
+cartSilver.innerText = silver;
   cartList.innerHTML = '';
   cart.forEach(item => {
     const cartItem = document.createElement("article");
@@ -190,27 +205,36 @@ function renderCart() {
     removeButton.addEventListener("click", () => {
       removeItemFromCart(item.name);
       cartItem.remove();
+
+    renderCart()
+
     });
 
     const inputField = cartItem.querySelector("#input");
     inputField.addEventListener("change", () => {
       changeQuantityInCart(inputField.value, item.name);
+
+      renderCart()
     });
 
     const addButton = cartItem.querySelector("#inc");
     addButton.addEventListener("click", () => {
       addQuantityInCart(item.name);
       inputField.value = parseInt(inputField.value) + 1;
+    renderCart();
     });
 
     const decButton = cartItem.querySelector("#dec");
     decButton.addEventListener("click", () => {
       removeQuantityInCart(item.name);
       inputField.value = parseInt(inputField.value) > 0 ? parseInt(inputField.value) - 1 : 0;
-    });
 
+renderCart()
+
+    });
     cartList.appendChild(cartItem);
   });
+
 }
 
 const buttons = document.querySelectorAll("#add-to-cart");
@@ -220,15 +244,7 @@ buttons.forEach(button => {
     const imgName = event.target.parentElement.parentElement.querySelector(".card__img").dataset.imgName;
     addItemToCart(imgName, 1, getItemPrice(articles, imgName));
     renderCart();
-cartTotalTTC.innerText = getCartTotalVAT(cart).toLocaleString("fr-FR", {
-  maximumFractionDigits: 2
-});
 
-cartTotalHT.innerText = getCartTotal(cart).toLocaleString("fr-FR", {
-  maximumFractionDigits: 2
-});
-const { gold, silver } = convertGoldToSilverAndGold(getCartTotalVAT(cart));
-cartGold.innerText = gold;
-cartSilver.innerText = silver;
   });
 });
+
