@@ -30,14 +30,14 @@ ul {
 }
 
 .nav {
-  height: 15vh;
+  height: 3rem;
   display: flex;
   align-items: center;
   width: 100%;
   background-color: #FCF0DC;
 }
 .nav__img {
-  width: 7rem;
+  width: 5rem;
   padding-left: 2rem;
 }
 .nav__ttl {
@@ -52,13 +52,12 @@ ul {
   background-repeat: no-repeat;
   background-size: cover;
   height: auto;
+  min-height: 100vh;
 }
 .cart__ttl {
   color: #6C491F;
   font-size: 2rem;
   text-align: center;
-  padding-top: 1.5rem;
-  padding-bottom: 1rem;
   border-bottom: 0.2rem solid #6C491F;
 }
 .cart__wrap {
@@ -88,7 +87,7 @@ ul {
 .itm {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 1.5rem;
   color: #6C491F;
   gap: 2rem;
@@ -98,6 +97,7 @@ ul {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  width: 8rem;
 }
 .itm__img {
   width: 3rem;
@@ -132,8 +132,7 @@ ul {
 }
 .container__ttl {
   color: #FCF0DC;
-  font-size: 2.8rem;
-  margin: 2rem 0 0 0;
+  font-size: 2rem;
   text-align: center;
 }
 .container__flex {
@@ -145,30 +144,27 @@ ul {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: 1.8rem;
-  padding: 1.5rem;
+  gap: 1rem;
   justify-content: flex-start;
   background-color: #6C491F;
 }
 
 .card {
-  width: 17%;
+  width: 23%;
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
   background-color: #FCF0DC;
-  position: relative;
   border: 4mm ridge rgba(255, 215, 0, 0.6);
   box-shadow: 5px 3px 3px black;
 }
 .card__ttl {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1rem;
   padding-top: 1rem;
   text-transform: capitalize;
 }
 .card__img {
-  width: 60%;
+  height: 4rem;
   margin: 1rem auto;
 }
 .card__price {
@@ -177,7 +173,7 @@ ul {
   align-items: center;
 }
 .card__sc, .card__gc {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
   display: flex;
   align-items: centers;
@@ -203,7 +199,8 @@ ul {
   height: 3.5rem;
   border-radius: 50px;
   width: 4rem;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   background-color: #A80126;
   box-shadow: 5px 3px 3px black;
   padding: 0.6rem;
@@ -212,9 +209,10 @@ ul {
 .searchbar__input {
   background-color: white;
   margin: 1rem;
-  height: 4rem;
+  height: 2.5rem;
   font-size: 1.5rem;
   text-align: center;
   border-radius: 2rem;
   border: 2px solid black;
+  margin-left: auto;
 }/*# sourceMappingURL=style.css.map */

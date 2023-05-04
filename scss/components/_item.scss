@@ -1,7 +1,7 @@
 .itm{
 display: flex;
 align-items: center;
-justify-content: center;
+justify-content: flex-start;
 padding: 1.5rem;
 color: $brown;
 gap: 2rem;
@@ -10,6 +10,7 @@ width: 100%;
         display: flex;
         align-items: center;
         gap: .5rem;
+        width: 8rem;
     }
     &__img{
         width: 3rem;
