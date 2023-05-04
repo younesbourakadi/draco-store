@@ -139,15 +139,10 @@ const cartTotalTTC = document.getElementById("cart__total-TTC");
 const cartTotalHT = document.getElementById("cart__total-HT");
 const itemList = document.getElementById("item-list");
 
-cartTotalTTC.innerText = getCartTotalVAT(cart).toLocaleString("fr-FR", {
-  maximumFractionDigits: 2
-});
 
-cartTotalHT.innerText = getCartTotal(cart).toLocaleString("fr-FR", {
-  maximumFractionDigits: 2
-});
 
 for (let i = 0; i < articles.length; i++) {
+
   if (articles[i].quantity > 0) {
     const item = document.createElement("li");
     item.className = "card";
@@ -166,11 +161,8 @@ for (let i = 0; i < articles.length; i++) {
   }
 }
 
-const { gold, silver } = convertGoldToSilverAndGold(getCartTotalVAT(cart));
 const cartSilver = document.getElementById("cart__silver");
 const cartGold = document.getElementById("cart__gold");
-cartGold.innerText = gold;
-cartSilver.innerText = silver;
 
 const cartList = document.getElementById("cart__list");
 function renderCart() {
@@ -194,26 +186,25 @@ function renderCart() {
       </button>
     `;
 
-    const removeButton = cartItem.querySelector('#remove');
+    const removeButton = cartItem.querySelector("#remove");
     removeButton.addEventListener("click", () => {
       removeItemFromCart(item.name);
       cartItem.remove();
     });
 
-    const inputField = cartItem.querySelector('#input');
+    const inputField = cartItem.querySelector("#input");
     inputField.addEventListener("change", () => {
-      const newQuantity = inputField.value;
-      changeQuantityInCart(newQuantity, item.name);
+      changeQuantityInCart(inputField.value, item.name);
     });
 
-    const addButton = cartItem.querySelector('#inc');
+    const addButton = cartItem.querySelector("#inc");
     addButton.addEventListener("click", () => {
       addQuantityInCart(item.name);
       inputField.value = parseInt(inputField.value) + 1;
     });
 
-    const decButton = cartItem.querySelector('#dec');
-    decButton.addEventListener('click', () => {
+    const decButton = cartItem.querySelector("#dec");
+    decButton.addEventListener("click", () => {
       removeQuantityInCart(item.name);
       inputField.value = parseInt(inputField.value) > 0 ? parseInt(inputField.value) - 1 : 0;
     });
@@ -222,11 +213,22 @@ function renderCart() {
   });
 }
 
-const buttons = document.querySelectorAll('#add-to-cart');
+const buttons = document.querySelectorAll("#add-to-cart");
 buttons.forEach(button => {
-  button.addEventListener('click', event => {
-    const imgName = event.target.parentElement.parentElement.querySelector('.card__img').dataset.imgName;
+  button.addEventListener("click", event => {
+
+    const imgName = event.target.parentElement.parentElement.querySelector(".card__img").dataset.imgName;
     addItemToCart(imgName, 1, getItemPrice(articles, imgName));
     renderCart();
+cartTotalTTC.innerText = getCartTotalVAT(cart).toLocaleString("fr-FR", {
+  maximumFractionDigits: 2
+});
+
+cartTotalHT.innerText = getCartTotal(cart).toLocaleString("fr-FR", {
+  maximumFractionDigits: 2
+});
+const { gold, silver } = convertGoldToSilverAndGold(getCartTotalVAT(cart));
+cartGold.innerText = gold;
+cartSilver.innerText = silver;
   });
 });
