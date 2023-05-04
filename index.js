@@ -79,6 +79,10 @@ function addItemToCart(name, quantity, price) {
   } else {
     cart.push({ name, price, quantity });
   }
+ const presentItem = cart.find(item => item.name === "cadeau");
+  if (!presentItem && getCartTotalVAT(cart) > 100) {
+    cart.push({ name: "cadeau", price: 0, quantity: 1 });
+  }
 }
 
 
