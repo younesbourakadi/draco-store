@@ -105,15 +105,11 @@ function convertGoldToSilverAndGold(total) {
 }
 
 function removeItemFromCart(itemName) {
-
-if (cart.length === 1) {
-  cart = [];
-} else {
-  cart.splice(itemName, 1);
+  const index = cart.findIndex(item => item.name === itemName);
+  if (index !== -1) {
+    cart.splice(index, 1);
+  }
 }
-
-}
-
 
 function changeQuantityInCart(num, name) {
   let item = cart.find(item => item.name === name);
