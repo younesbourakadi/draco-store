@@ -15,7 +15,7 @@
         text-transform: capitalize;
     }
     &__img{
-        width: 50%;
+        width: 60%;
         margin: 1rem auto;
         // border: 2px solid salmon;
 
@@ -28,6 +28,11 @@
     &__sc, &__gc{
         font-size: 1.2rem;
         font-weight: 600;
+        display: flex;
+        align-items: centers;
+    }
+    &__coins{
+        width: 1.5rem;
     }
     &__btn{
         background: none;

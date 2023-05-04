@@ -159,7 +159,8 @@ for (let i = 0; i < articles.length; i++) {
       <h3 class="card__ttl">${articles[i].name}</h3>
       <img class="card__img" src="./img/${articles[i].name}.png" id="${articles[i].name}" data-img-name="${articles[i].name}">
       <div class="card__price">
-        <span class="card__sc">$${articles[i].price.toFixed(2)}</span>
+        <span class="card__sc"><img src="img/po.png" class="card__coins">${articles[i].price.toFixed(2)}</span>
+        <span class="card__sc"><img src="img/pa.png" class="card__coins">${articles[i].price.toFixed(2)}</span>
         <span class="card__gc">stock : ${articles[i].quantity}</span>
       </div>
       <button class="card__btn" > 
