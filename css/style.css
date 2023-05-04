@@ -129,7 +129,6 @@ ul {
   flex-direction: column;
   flex-wrap: wrap;
   background-color: #6C491F;
-  margin: 0 3rem;
 }
 .container__ttl {
   color: #FCF0DC;
@@ -146,14 +145,14 @@ ul {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: 4rem;
-  padding: 2rem;
-  justify-content: center;
+  gap: 1.8rem;
+  padding: 1.5rem;
+  justify-content: flex-start;
   background-color: #6C491F;
 }
 
 .card {
-  width: 25%;
+  width: 17%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -164,7 +163,7 @@ ul {
 }
 .card__ttl {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding-top: 1rem;
   text-transform: capitalize;
 }
@@ -174,11 +173,11 @@ ul {
 }
 .card__price {
   display: flex;
-  justify-content: space-around;
-  padding-bottom: 2rem;
+  flex-direction: column;
+  align-items: center;
 }
 .card__sc, .card__gc {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
 }
 .card__btn {
@@ -196,25 +195,21 @@ ul {
   transition: 300ms;
 }
 .card__img--cart {
-  height: 2.5rem;
+  height: 3.5rem;
   border-radius: 50px;
   width: 4rem;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   background-color: #A80126;
   box-shadow: 5px 3px 3px black;
-  padding: 0.3rem;
-}/*# sourceMappingURL=style.css.map */
-
+  padding: 0.6rem;
+}
 
 .searchbar__input {
   background-color: white;
-  margin: auto;
-  max-width: 88rem;
-  width: 50%;
+  margin: 1rem;
   height: 4rem;
   font-size: 1.5rem;
   text-align: center;
   border-radius: 2rem;
   border: 2px solid black;
-}
+}/*# sourceMappingURL=style.css.map */

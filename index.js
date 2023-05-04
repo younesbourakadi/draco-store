@@ -3,7 +3,7 @@ const articles = [
     {
         name: "arbalète",
         price: 9.80,
-        quantity: 2,
+        quantity: 4,
     },
     {
         name: "armure",
@@ -58,7 +58,7 @@ const articles = [
     {
         name: "bouclier",
         price: 11.80,
-        quantity: 0,
+        quantity: 4,
     }
   ]
   
