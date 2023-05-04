@@ -2,7 +2,7 @@ const articles = [
     {
         name: "arbalète",
         price: 9.80,
-        quantity: 10,
+        quantity: 2,
     },
     {
         name: "armure",
@@ -37,7 +37,7 @@ const articles = [
     {
         name: "épée",
         price: 10.80,
-        quantity: 1,
+        quantity: 8,
     },
     {
         name: "luth",
@@ -47,22 +47,22 @@ const articles = [
     {
         name: "masse",
         price: 13.80,
-        quantity: 1,
+        quantity: 5,
     },
     {
         name: "torche",
         price: 14.80,
-        quantity: 1,
+        quantity: 16,
     },
     {
         name: "bouclier",
         price: 11.80,
-        quantity: 8,
+        quantity: 0,
     }
   ]
   
   
-  let cart = []
+let cart = []
 
 
 function getAllAvailableStoreItems(arr) {
@@ -156,7 +156,7 @@ for (let i = 0; i < articles.length; i++) {
       <img class="card__img" src="./img/${articles[i].name}.png" id="${articles[i].name}" data-img-name="${articles[i].name}">
       <div class="card__price">
         <span class="card__sc">$${articles[i].price.toFixed(2)}</span>
-        <span class="card__gc">SG</span>
+        <span class="card__gc">stock : ${articles[i].quantity}</span>
       </div>
       <button class="card__btn" > 
         <img src="img/cart.png" alt="panier" class="card__img--cart" id="add-to-cart">
@@ -164,6 +164,14 @@ for (let i = 0; i < articles.length; i++) {
     `;
     itemList.appendChild(item);
   }
+}
+
+for (let s = 0; s < articles.length ; s++) {
+  if (articles[s].quantity <= 3 && articles[s].quantity >= 1) {
+    // console.log (articles[s].quantity)
+    window.alert (`!!!!!! ${articles[s].name} a moin de 3 pièces en stock. !!!!!! `)
+  } else if ( articles[s].quantity === undefined || articles[s].quantity === 0)
+  window.alert (`!!!!!! STOCK EPUISE !!!!!! ${articles[s].name} !!!!!! STOCK EPUISE !!!!!! `)
 }
 
 const cartSilver = document.getElementById("cart__silver");
@@ -245,6 +253,6 @@ buttons.forEach(button => {
     addItemToCart(imgName, 1, getItemPrice(articles, imgName));
     renderCart();
 
-  });
-});
+  });});
+
 
