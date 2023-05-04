@@ -57,7 +57,7 @@ const articles = [
     {
         name: "bouclier",
         price: 11.80,
-        quantity: 2,
+        quantity: 0,
     }
   ]
   
@@ -162,10 +162,11 @@ for (let i = 0; i < articles.length; i++) {
 }
 
 for (let s = 0; s < articles.length ; s++) {
-  if (articles[s].quantity < 3) {
+  if (articles[s].quantity <= 3 && articles[s].quantity >= 1) {
     // console.log (articles[s].quantity)
     window.alert (`!!!!!! ${articles[s].name} a moin de 3 pièces en stock. !!!!!! `)
-  }
+  } else if ( articles[s].quantity === undefined || articles[s].quantity === 0)
+  window.alert (`!!!!!! STOCK EPUISE !!!!!! ${articles[s].name} !!!!!! STOCK EPUISE !!!!!! `)
 }
 
 const cartSilver = document.getElementById("cart__silver");
