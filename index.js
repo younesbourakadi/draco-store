@@ -1,4 +1,5 @@
 const articles = [
+
     {
         name: "arbalète",
         price: 9.80,
@@ -62,11 +63,12 @@ const articles = [
   ]
   
   
+
 let cart = []
 
 
 function getAllAvailableStoreItems(arr) {
-    return arr.filter(item => item.quantity > 0)
+  return arr.filter(item => item.quantity > 0)
 }
 
 
@@ -81,8 +83,8 @@ function addItemToCart(name, quantity, price) {
 
 
 function getItemPrice(items, itemName) {
-    const item = items.find(i => i.name === itemName);
-    return item ? item.price : 0;
+  const item = items.find(i => i.name === itemName);
+  return item ? item.price : 0;
 }
 
 // function convertGoldToSilverAndGold(items, itemName) {
@@ -93,17 +95,19 @@ function getItemPrice(items, itemName) {
 // }
 
 function convertGoldToSilverAndGold(total) {
-    let gold = Math.floor(total);
-    let silver = Math.round((total - gold) * 10);
-    return { gold, silver };
+  let gold = Math.floor(total);
+  let silver = Math.round((total - gold) * 10);
+  return { gold, silver };
 }
 
 function removeItemFromCart(itemName) {
+
 if (cart.length === 1) {
   cart = [];
 } else {
   cart.splice(itemName, 1);
 }
+
 }
 
 
@@ -132,12 +136,12 @@ function removeQuantityInCart(name) {
 }
 
 function getCartTotal(cart) {
-    return cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0);
+  return cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0);
 }
 
 function getCartTotalVAT(cart) {
-    const vat = 1.13;
-    return Number((getCartTotal(cart) * vat).toFixed(2));
+  const vat = 1.13;
+  return Number((getCartTotal(cart) * vat).toFixed(2));
 }
 
 const cartTotalTTC = document.getElementById("cart__total-TTC");
