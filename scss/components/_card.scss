@@ -11,7 +11,7 @@
     box-shadow: 5px 3px 3px black;
     &__ttl{
         text-align: center;
-        font-size: 1.5rem;
+        font-size: 2rem;
         padding-top: 1rem;
         text-transform: capitalize;
     }
@@ -27,8 +27,8 @@
         padding-bottom: 2rem;
     }
     &__sc, &__gc{
-        font-size: 1.2rem;
-        font-weight: 500;
+        font-size: 1.5rem;
+        font-weight: 600;
     }
     &__btn{
         background: $cta;
@@ -36,12 +36,11 @@
         margin: 0 auto;
         padding: .5rem;
         border-radius: 50px;
-        position: absolute;
-        bottom: -2rem;
-        left: 5rem;
+        width: 5rem;
+        margin-bottom: -2rem;
         box-shadow: 5px 3px 3px black;
     }
     &__img--cart{
-        height: 2rem;
+        height: 2.5rem;
     }
 }
