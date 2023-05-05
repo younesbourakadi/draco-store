@@ -5,8 +5,8 @@
     background-image: url(/img/parchemin.png);
     background-repeat: no-repeat;
     background-size: cover;
-    height: auto;
-    min-height: 100vh;
+    height: 100vh;
+    // min-height: 100vh;
        
 
     &__ttl{
@@ -30,6 +30,7 @@
         gap: 1rem;
         justify-content: center;
         align-items: center;
+        
     }
     &__total{
         display: flex;
@@ -38,6 +39,10 @@
     }
     &__img{
         width: 3rem;
+    }
+    &__list{
+        overflow: scroll;
+        height: 75vh;
     }
 }
 

@@ -3,8 +3,9 @@
     flex-direction: column;
     flex-wrap:wrap ;
     background-color: $brown;
+    width: 100%;
     // margin: 0 3rem;
-    &__ttl{
+    &__ttl{ 
         color: $beige;
         font-size: 2rem;
         text-align: center;

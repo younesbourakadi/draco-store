@@ -53,8 +53,7 @@ ul {
   background-image: url(/img/parchemin.png);
   background-repeat: no-repeat;
   background-size: cover;
-  height: auto;
-  min-height: 100vh;
+  height: 100vh;
 }
 .cart__ttl {
   color: #6C491F;
@@ -84,6 +83,10 @@ ul {
 }
 .cart__img {
   width: 3rem;
+}
+.cart__list {
+  overflow: scroll;
+  height: 75vh;
 }
 
 .itm {
@@ -131,6 +134,7 @@ ul {
   flex-direction: column;
   flex-wrap: wrap;
   background-color: #6C491F;
+  width: 100%;
 }
 .container__ttl {
   color: #FCF0DC;
