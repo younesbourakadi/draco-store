@@ -90,8 +90,8 @@ function addItemToCart(name, quantity, price) {
   } else {
     cart.push({ name, price, quantity });
   }
-  if (getCartTotalVAT(cart) > 100 && !cart.some(item => item.name === "cadeau")) {
-    cart.push({ name: "cadeau", price: 0, quantity: 1 });
+  if (getCartTotalVAT(cart) > 100 && !cart.some(item => item.name === "coffre")) {
+    cart.push({ name: "coffre", price: 0, quantity: 1 });
   }
 }
 

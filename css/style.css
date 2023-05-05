@@ -50,11 +50,12 @@ ul {
 }
 
 .cart {
+  position: sticky;
+  top: 0;
   background-image: url(/img/parchemin.png);
   background-repeat: no-repeat;
   background-size: cover;
-  height: auto;
-  min-height: 100vh;
+  height: 100vh;
 }
 .cart__ttl {
   color: #6C491F;
@@ -84,6 +85,10 @@ ul {
 }
 .cart__img {
   width: 3rem;
+}
+.cart__list {
+  overflow-y: scroll;
+  height: 70vh;
 }
 
 .itm {
@@ -131,6 +136,7 @@ ul {
   flex-direction: column;
   flex-wrap: wrap;
   background-color: #6C491F;
+  width: 100%;
 }
 .container__ttl {
   color: #FCF0DC;
@@ -212,12 +218,12 @@ ul {
 }
 
 .searchbar__input {
-  background-color: white;
-  margin: 1rem;
+  background-color: #FCF0DC;
+  width: 30%;
   height: 2.5rem;
-  font-size: 1.5rem;
-  text-align: center;
+  font-size: 1.2rem;
+  padding-left: 1rem;
   border-radius: 2rem;
   border: 2px solid black;
-  margin-left: auto;
+  margin-left: 2rem;
 }/*# sourceMappingURL=style.css.map */
