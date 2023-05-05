@@ -62,7 +62,19 @@ let articles = [
     }
   ]
   
+
   
+async function getJsonData() {
+  const response = await fetch("articles.json");
+  const data = await response.json();
+  return data;
+}
+
+// data is an object and not an array, so I create another function to access at the Array instead of the object. 
+
+async function getArticlesData() {
+  const articlesData = await getJsonData();
+  const articles = articlesData.articles;
 
 let cart = []
 
@@ -324,3 +336,7 @@ buttons.forEach(button => {
 
 
 
+
+}
+
+getArticlesData();
