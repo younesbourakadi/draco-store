@@ -1,68 +1,78 @@
-const articles = [
+// const articles = [
 
-    {
-        name: "arbalète",
-        price: 9.80,
-        quantity: 4,
-    },
-    {
-        name: "armure",
-        price: 7.90,
-        quantity: 7,
-    },
-    {
-        name: "flèche",
-        price: 4.50,
-        quantity: 46,
-    },
-    {
-        name: "calice",
-        price: 3.80,
-        quantity: 26,
-    },
-    {
-        name: "carte",
-        price: 2.50,
-        quantity: 50,
-    },
-    {
-        name: "casque",
-        price: 9.90,
-        quantity: 8,
-    },
-    {
-        name: "potion",
-        price: 5.60,
-        quantity: 36,
-    },
-    {
-        name: "épée",
-        price: 10.80,
-        quantity: 8,
-    },
-    {
-        name: "luth",
-        price: 8.20,
-        quantity: 7,
-    },
-    {
-        name: "masse",
-        price: 13.80,
-        quantity: 5,
-    },
-    {
-        name: "torche",
-        price: 14.80,
-        quantity: 16,
-    },
-    {
-        name: "bouclier",
-        price: 11.80,
-        quantity: 4,
-    }
-  ]
+//     {
+//         name: "arbalète",
+//         price: 9.80,
+//         quantity: 4,
+//     },
+//     {
+//         name: "armure",
+//         price: 7.90,
+//         quantity: 7,
+//     },
+//     {
+//         name: "flèche",
+//         price: 4.50,
+//         quantity: 46,
+//     },
+//     {
+//         name: "calice",
+//         price: 3.80,
+//         quantity: 26,
+//     },
+//     {
+//         name: "carte",
+//         price: 2.50,
+//         quantity: 50,
+//     },
+//     {
+//         name: "casque",
+//         price: 9.90,
+//         quantity: 8,
+//     },
+//     {
+//         name: "potion",
+//         price: 5.60,
+//         quantity: 36,
+//     },
+//     {
+//         name: "épée",
+//         price: 10.80,
+//         quantity: 8,
+//     },
+//     {
+//         name: "luth",
+//         price: 8.20,
+//         quantity: 7,
+//     },
+//     {
+//         name: "masse",
+//         price: 13.80,
+//         quantity: 5,
+//     },
+//     {
+//         name: "torche",
+//         price: 14.80,
+//         quantity: 16,
+//     },
+//     {
+//         name: "bouclier",
+//         price: 11.80,
+//         quantity: 4,
+//     }
+//   ]
   
-  
+async function getJsonData() {
+  const response = await fetch("articles.json");
+  const data = await response.json();
+  return data;
+}
+
+// data is an object and not an array, so I create another function to access at the Array instead of the object. 
+
+async function getArticlesData() {
+  const articlesData = await getJsonData();
+  const articles = articlesData.articles;
 
 let cart = []
 
@@ -261,3 +271,7 @@ buttons.forEach(button => {
   });});
 
 
+  console.log(articles);
+}
+
+getArticlesData();
