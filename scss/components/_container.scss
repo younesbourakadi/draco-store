@@ -3,13 +3,12 @@
     flex-direction: column;
     flex-wrap:wrap ;
     background-color: $brown;
-    // background-image: url(../img/wood2.png);
-    margin: 0 3rem;
+    // margin: 0 3rem;
     &__ttl{
         color: $beige;
-        font-size: 2.8rem;
-        margin: 2rem 0 0 0;
+        font-size: 2rem;
         text-align: center;
+        padding: .5rem;
     }
     &__flex{
         display: flex;

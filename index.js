@@ -3,7 +3,7 @@ const articles = [
     {
         name: "arbalète",
         price: 9.80,
-        quantity: 2,
+        quantity: 4,
     },
     {
         name: "armure",
@@ -58,7 +58,7 @@ const articles = [
     {
         name: "bouclier",
         price: 11.80,
-        quantity: 0,
+        quantity: 4,
     }
   ]
   
@@ -103,15 +103,11 @@ function convertGoldToSilverAndGold(total) {
 }
 
 function removeItemFromCart(itemName) {
-
-if (cart.length === 1) {
-  cart = [];
-} else {
-  cart.splice(itemName, 1);
+  const index = cart.findIndex(item => item.name === itemName);
+  if (index !== -1) {
+    cart.splice(index, 1);
+  }
 }
-
-}
-
 
 function changeQuantityInCart(num, name) {
   let item = cart.find(item => item.name === name);
@@ -161,7 +157,8 @@ for (let i = 0; i < articles.length; i++) {
       <h3 class="card__ttl">${articles[i].name}</h3>
       <img class="card__img" src="./img/${articles[i].name}.png" id="${articles[i].name}" data-img-name="${articles[i].name}">
       <div class="card__price">
-        <span class="card__sc">$${articles[i].price.toFixed(2)}</span>
+        <span class="card__sc"><img src="img/po.png" class="card__coins">${articles[i].price.toFixed(2)}</span>
+        <span class="card__sc"><img src="img/pa.png" class="card__coins">${articles[i].price.toFixed(2)}</span>
         <span class="card__gc">stock : ${articles[i].quantity}</span>
       </div>
       <button class="card__btn" > 
