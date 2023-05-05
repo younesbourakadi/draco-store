@@ -56,12 +56,14 @@ ul {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+  min-width: 20vw;
 }
 .cart__ttl {
   color: #6C491F;
   font-size: 2rem;
   text-align: center;
   border-bottom: 0.2rem solid #6C491F;
+  padding: 1rem;
 }
 .cart__wrap {
   color: #6C491F;
