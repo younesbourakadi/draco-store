@@ -199,14 +199,17 @@ async function getArticlesData() {
       filteredArticles = articles;
       return;
     }
-    let searchWords = searchTerm.toLowerCase().split(" ");
+    let searchWords = replaceAccent(
+
+      searchTerm.toLowerCase()
+    ).split(" ");
     filteredArticles = [];
 
     for (let i = 0; i < searchWords.length; i++) {
       let currentWord = searchWords[i];
       let matchedArticles = articles.filter(article => {
         let articleName = article.name.toLowerCase();
-        return articleName.includes(currentWord);
+        return replaceAccent(articleName).includes(currentWord);
       });
       filteredArticles.push(...matchedArticles);
     }
@@ -215,12 +218,12 @@ async function getArticlesData() {
   }
 
   searchBar.addEventListener("input", () => {
-    filteredArticles.forEach(item => {
-      if (searchBar.value === replaceAccent(item.name)) {
-        searchTerm = searchBar.value;
-      }
-    });
-
+    // filteredArticles.forEach(item => {
+    //   if (searchBar.value === replaceAccent(item.name)) {
+      //   }
+      // });
+      
+    searchTerm = searchBar.value;
 
     console.log(replaceAccent(searchBar.value));
 
