@@ -34,6 +34,8 @@ ul {
   display: flex;
   align-items: center;
   width: 100%;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
   background-color: #FCF0DC;
 }
 .nav__img {
@@ -134,6 +136,7 @@ ul {
   color: #FCF0DC;
   font-size: 2rem;
   text-align: center;
+  padding: 0.5rem;
 }
 .container__flex {
   display: flex;
@@ -144,15 +147,17 @@ ul {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: 1rem;
-  justify-content: flex-start;
+  padding: 1rem;
+  gap: 2rem;
+  justify-content: center;
   background-color: #6C491F;
 }
 
 .card {
-  width: 23%;
+  width: 17%;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   background-color: #FCF0DC;
   border: 4mm ridge rgba(255, 215, 0, 0.6);
   box-shadow: 5px 3px 3px black;

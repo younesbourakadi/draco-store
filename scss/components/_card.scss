@@ -1,8 +1,9 @@
 
 .card {
-    width: 23%;
+    width: 17%;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     background-color: $beige;
     border: 4mm ridge rgba(255,215,0, 0.6);
     box-shadow: 5px 3px 3px black;
