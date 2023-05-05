@@ -163,6 +163,14 @@ async function getArticlesData() {
 
   let filteredArticles = articles;
 
+
+  function replaceAccent(string) {
+    return string
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, '');
+  }
+
+
   function renderArticles() {
     itemList.innerHTML = "";
     filteredArticles.forEach(article => {
@@ -206,7 +214,15 @@ async function getArticlesData() {
   }
 
   searchBar.addEventListener("input", () => {
-    searchTerm = searchBar.value;
+    filteredArticles.forEach(item => {
+      if (searchBar.value === replaceAccent(item.name)) {
+        searchTerm = searchBar.value;
+      }
+    });
+
+
+    console.log(replaceAccent(searchBar.value));
+
     filterArticles()
     renderArticles();
   });
