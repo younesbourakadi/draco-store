@@ -39,7 +39,7 @@ ul {
   background-color: #FCF0DC;
 }
 .nav__img {
-  width: 5rem;
+  width: 6rem;
   padding-left: 2rem;
 }
 .nav__ttl {
@@ -53,8 +53,7 @@ ul {
   background-image: url(/img/parchemin.png);
   background-repeat: no-repeat;
   background-size: cover;
-  height: auto;
-  min-height: 100vh;
+  height: 100vh;
 }
 .cart__ttl {
   color: #6C491F;
@@ -119,6 +118,7 @@ ul {
   width: 3rem;
   border-radius: 0.2rem;
   border: none;
+  font-size: 1.5rem;
 }
 .itm__button {
   border: none;
