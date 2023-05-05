@@ -71,7 +71,6 @@ function getAllAvailableStoreItems(arr) {
   return arr.filter(item => item.quantity > 0)
 }
 
-
 function addItemToCart(name, quantity, price) {
   const item = cart.find(item => item.name === name);
   if (item) {
@@ -79,8 +78,7 @@ function addItemToCart(name, quantity, price) {
   } else {
     cart.push({ name, price, quantity });
   }
- const presentItem = cart.find(item => item.name === "cadeau");
-  if (!presentItem && getCartTotalVAT(cart) > 100) {
+  if (getCartTotalVAT(cart) > 100 && !cart.some(item => item.name === "cadeau")) {
     cart.push({ name: "cadeau", price: 0, quantity: 1 });
   }
 }
@@ -261,6 +259,7 @@ buttons.forEach(button => {
     addItemToCart(imgName, 1, getItemPrice(articles, imgName));
     renderCart();
 
-  });});
+  });
+});
 
 
