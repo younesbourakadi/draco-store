@@ -1,7 +1,7 @@
 .cart {
 
-    // position: sticky;
-    // top:0;
+    position: sticky;
+    top:0;
     background-image: url(/img/parchemin.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -41,8 +41,11 @@
         width: 3rem;
     }
     &__list{
-        overflow: scroll;
-        height: 75vh;
-    }
+        overflow-y: scroll;
+        height: 70vh;
+        // ::-webkit-scrollbar{
+        //     background-color: red;
+        // }
+    } 
 }
 

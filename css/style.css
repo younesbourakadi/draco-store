@@ -50,6 +50,8 @@ ul {
 }
 
 .cart {
+  position: sticky;
+  top: 0;
   background-image: url(/img/parchemin.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -85,8 +87,8 @@ ul {
   width: 3rem;
 }
 .cart__list {
-  overflow: scroll;
-  height: 75vh;
+  overflow-y: scroll;
+  height: 70vh;
 }
 
 .itm {
