@@ -161,7 +161,7 @@ async function getArticlesData() {
   const itemList = document.getElementById("item__list");
   let searchTerm = "";
 
-  let filteredArticles = [];
+  let filteredArticles = articles;
 
   function renderArticles() {
     itemList.innerHTML = "";
@@ -186,6 +186,10 @@ async function getArticlesData() {
     });
   }
   function filterArticles() {
+    if (searchTerm === "") {
+      filteredArticles = articles;
+      return;
+    }
     let searchWords = searchTerm.toLowerCase().split(" ");
     filteredArticles = [];
 
@@ -203,11 +207,9 @@ async function getArticlesData() {
 
   searchBar.addEventListener("input", () => {
     searchTerm = searchBar.value;
-    filterArticles();
+    filterArticles()
     renderArticles();
   });
-
-
   renderArticles();
 
 
@@ -241,13 +243,13 @@ async function getArticlesData() {
 
   const cartList = document.getElementById("cart__list");
   function renderCart() {
-    cartTotalTTC.innerText = getCartTotalVAT(cart).toLocaleString("fr-FR", {
-      maximumFractionDigits: 2
-    });
+    // cartTotalTTC.innerText = getCartTotalVAT(cart).toLocaleString("fr-FR", {
+    //   maximumFractionDigits: 2
+    // });
 
-    cartTotalHT.innerText = getCartTotal(cart).toLocaleString("fr-FR", {
-      maximumFractionDigits: 2
-    });
+    // cartTotalHT.innerText = getCartTotal(cart).toLocaleString("fr-FR", {
+    //   maximumFractionDigits: 2
+    // });
 
 
     const { gold, silver } = convertGoldToSilverAndGold(getCartTotalVAT(cart));
@@ -322,7 +324,7 @@ async function getArticlesData() {
   const buttons = document.querySelectorAll("#add-to-cart");
   buttons.forEach(button => {
     button.addEventListener("click", event => {
-
+      console.log(button);
       const imgName = event.target.parentElement.parentElement.querySelector(".card__img").dataset.imgName;
       addItemToCart(imgName, 1, getItemPrice(articles, imgName));
       renderCart();
