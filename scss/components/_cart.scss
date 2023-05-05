@@ -5,8 +5,9 @@
     background-image: url(/img/parchemin.png);
     background-repeat: no-repeat;
     background-size: cover;
-    height: auto;
-    min-height: 100vh;
+    height: 100vh;
+    // height: auto;
+    // min-height: 100vh;
        
 
     &__ttl{
@@ -38,6 +39,10 @@
     }
     &__img{
         width: 3rem;
+    }
+    &__list{
+        overflow: scroll;
+        height: 80vh;
     }
 }
 
