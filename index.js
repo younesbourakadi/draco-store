@@ -154,95 +154,72 @@ function getCartTotalVAT(cart) {
   return Number((getCartTotal(cart) * vat).toFixed(2));
 }
 
+
 const cartTotalTTC = document.getElementById("cart__total-TTC");
 const cartTotalHT = document.getElementById("cart__total-HT");
-const itemList = document.getElementById("item-list");
+const searchBar = document.getElementById("searchBar");
+const itemList = document.getElementById("item__list");
+let searchTerm = "";
 
-
-// function renderArticles(){
-// for (let i = 0; i < articles.length; i++) {
-
-//   if (articles[i].quantity > 0) {
-//     const item = document.createElement("li");
-//     item.className = "card";
-//     item.innerHTML = `
-//       <h3 class="card__ttl">${articles[i].name}</h3>
-//       <img class="card__img" src="./img/${articles[i].name}.png" id="${articles[i].name}" data-img-name="${articles[i].name}">
-//       <div class="card__price">
-//         <span class="card__sc"><img src="img/po.png" class="card__coins">${articles[i].price.toFixed(2)}</span>
-//         <span class="card__sc"><img src="img/pa.png" class="card__coins">${articles[i].price.toFixed(2)}</span>
-//         <span class="card__gc">stock : ${articles[i].quantity}</span>
-//       </div>
-//       <button class="card__btn" > 
-//         <img src="img/cart.png" alt="panier" class="card__img--cart" id="add-to-cart">
-//       </button>
-//     `;
-//     itemList.appendChild(item);
-//   }
-// }
-// }
-
-// renderArticles()
-// const searchBar = document.getElementById("searchBar");
-// searchBar.addEventListener("input", function(event) {
-//   let searchTerm = event.target.value.toLowerCase();
-//   articles = articles.filter(article => article.name.toLowerCase().includes(searchTerm.toLowerCase()));
-//   console.log(articles)
-//   renderArticles()
-// });
-
-
+let filteredArticles = [];
 
 function renderArticles() {
-  for (let i = 0; i < articles.length; i++) {
-    if (articles[i].quantity > 0) {
+  itemList.innerHTML = "";
+  filteredArticles.forEach(article => { 
+    if (article.quantity > 0) {
       const item = document.createElement("li");
-      const coins = convertGoldToSilverAndGold(articles[i].price);
       item.className = "card";
       item.innerHTML = `
-        <h3 class="card__ttl">${articles[i].name}</h3>
-        <img class="card__img" src="./img/${articles[i].name}.png" id="${articles[i].name}" data-img-name="${articles[i].name}">
+        <h3 class="card__ttl">${article.name}</h3>
+        <img class="card__img" src="./img/${article.name}.png" id="${article.name}" data-img-name="${article.name}">
         <div class="card__price">
-          <span class="card__sc"><img src="img/po.png" class="card__coins">${coins.gold}</span>
-          <span class="card__sc"><img src="img/pa.png" class="card__coins">${coins.silver}</span>
-          <span class="card__gc">stock : ${articles[i].quantity}</span>
+          <span class="card__sc"><img src="img/po.png" class="card__coins">${article.price.toFixed(2)}</span>
+          <span class="card__sc"><img src="img/pa.png" class="card__coins">${article.price.toFixed(2)}</span>
+          <span class="card__gc">stock : ${article.quantity}</span>
         </div>
-        <button class="card__btn"> 
+        <button class="card__btn" > 
           <img src="img/cart.png" alt="panier" class="card__img--cart" id="add-to-cart">
         </button>
       `;
       itemList.appendChild(item);
     }
+  });
+}
+function filterArticles() {
+  let searchWords = searchTerm.toLowerCase().split(" ");
+  filteredArticles = [];
+
+  for (let i = 0; i < searchWords.length; i++) {
+    let currentWord = searchWords[i];
+    let matchedArticles = articles.filter(article => {
+      let articleName = article.name.toLowerCase();
+      return articleName.includes(currentWord);
+    });
+    filteredArticles.push(...matchedArticles);
   }
+
+  filteredArticles = [...new Set(filteredArticles)];
 }
 
-function updateArticles() {
-  itemList.innerHTML = "";
-  let searchTerm = searchBar.value.toLowerCase();
-  let filteredArticles = articles.filter(article => article.name.toLowerCase().includes(searchTerm));
-  for (let i = 0; i < filteredArticles.length; i++) {
-    if (filteredArticles[i].quantity > 0) {
-      const item = document.createElement("li");
-      item.className = "card";
-      item.innerHTML = `
-        <h3 class="card__ttl">${filteredArticles[i].name}</h3>
-        <img class="card__img" src="./img/${filteredArticles[i].name}.png" id="${filteredArticles[i].name}" data-img-name="${filteredArticles[i].name}">
-        <div class="card__price">
-          <span class="card__sc"><img src="img/po.png" class="card__coins">${filteredArticles[i].price.toFixed(2)}</span>
-          <span class="card__sc"><img src="img/pa.png" class="card__coins">${filteredArticles[i].price.toFixed(2)}</span>
-          <span class="card__gc">stock : ${filteredArticles[i].quantity}</span>
-        </div>
-        <button class="card__btn"> 
-          <img src="img/cart.png" alt="panier" class="card__img--cart" id="add-to-cart">
-        </button>
-      `;
-      itemList.appendChild(item);
-    }
-  }
-}
+searchBar.addEventListener("input", () => {
+  searchTerm = searchBar.value;
+  filterArticles();
+  renderArticles();
+});
+
 
 renderArticles();
-searchBar.addEventListener("input", updateArticles);
+
+
+
+
+
+
+
+
+
+
+
 
 
 
