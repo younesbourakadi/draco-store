@@ -1,68 +1,68 @@
 const articles = [
 
-    {
-        name: "arbalète",
-        price: 9.80,
-        quantity: 4,
-    },
-    {
-        name: "armure",
-        price: 7.90,
-        quantity: 7,
-    },
-    {
-        name: "flèche",
-        price: 4.50,
-        quantity: 46,
-    },
-    {
-        name: "calice",
-        price: 3.80,
-        quantity: 26,
-    },
-    {
-        name: "carte",
-        price: 2.50,
-        quantity: 50,
-    },
-    {
-        name: "casque",
-        price: 9.90,
-        quantity: 8,
-    },
-    {
-        name: "potion",
-        price: 5.60,
-        quantity: 36,
-    },
-    {
-        name: "épée",
-        price: 10.80,
-        quantity: 8,
-    },
-    {
-        name: "luth",
-        price: 8.20,
-        quantity: 7,
-    },
-    {
-        name: "masse",
-        price: 13.80,
-        quantity: 5,
-    },
-    {
-        name: "torche",
-        price: 14.80,
-        quantity: 16,
-    },
-    {
-        name: "bouclier",
-        price: 11.80,
-        quantity: 4,
-    }
-  ]
-  
-  
+  {
+    name: "arbalète",
+    price: 9.80,
+    quantity: 4,
+  },
+  {
+    name: "armure",
+    price: 7.90,
+    quantity: 7,
+  },
+  {
+    name: "flèche",
+    price: 4.50,
+    quantity: 46,
+  },
+  {
+    name: "calice",
+    price: 3.80,
+    quantity: 26,
+  },
+  {
+    name: "carte",
+    price: 2.50,
+    quantity: 50,
+  },
+  {
+    name: "casque",
+    price: 9.90,
+    quantity: 8,
+  },
+  {
+    name: "potion",
+    price: 5.60,
+    quantity: 36,
+  },
+  {
+    name: "épée",
+    price: 10.80,
+    quantity: 8,
+  },
+  {
+    name: "luth",
+    price: 8.20,
+    quantity: 7,
+  },
+  {
+    name: "masse",
+    price: 13.80,
+    quantity: 5,
+  },
+  {
+    name: "torche",
+    price: 14.80,
+    quantity: 16,
+  },
+  {
+    name: "bouclier",
+    price: 11.80,
+    quantity: 4,
+  }
+]
+
+
 
 let cart = []
 
@@ -79,7 +79,7 @@ function addItemToCart(name, quantity, price) {
   } else {
     cart.push({ name, price, quantity });
   }
- const presentItem = cart.find(item => item.name === "cadeau");
+  const presentItem = cart.find(item => item.name === "cadeau");
   if (!presentItem && getCartTotalVAT(cart) > 100) {
     cart.push({ name: "cadeau", price: 0, quantity: 1 });
   }
@@ -154,13 +154,14 @@ for (let i = 0; i < articles.length; i++) {
 
   if (articles[i].quantity > 0) {
     const item = document.createElement("li");
+    const coins = convertGoldToSilverAndGold(articles[i].price);
     item.className = "card";
     item.innerHTML = `
       <h3 class="card__ttl">${articles[i].name}</h3>
       <img class="card__img" src="./img/${articles[i].name}.png" id="${articles[i].name}" data-img-name="${articles[i].name}">
       <div class="card__price">
-        <span class="card__sc"><img src="img/po.png" class="card__coins">${articles[i].price.toFixed(2)}</span>
-        <span class="card__sc"><img src="img/pa.png" class="card__coins">${articles[i].price.toFixed(2)}</span>
+        <span class="card__sc"><img src="img/po.png" id="card__gold" class="card__coins">${coins.gold}</span>
+        <span class="card__sc"><img src="img/pa.png" class="card__coins">${coins.silver}</span>
         <span class="card__gc">stock : ${articles[i].quantity}</span>
       </div>
       <button class="card__btn" > 
@@ -171,12 +172,12 @@ for (let i = 0; i < articles.length; i++) {
   }
 }
 
-for (let s = 0; s < articles.length ; s++) {
+for (let s = 0; s < articles.length; s++) {
   if (articles[s].quantity <= 3 && articles[s].quantity >= 1) {
     // console.log (articles[s].quantity)
-    window.alert (`!!!!!! ${articles[s].name} a moin de 3 pièces en stock. !!!!!! `)
-  } else if ( articles[s].quantity === undefined || articles[s].quantity === 0)
-  window.alert (`!!!!!! STOCK EPUISE !!!!!! ${articles[s].name} !!!!!! STOCK EPUISE !!!!!! `)
+    window.alert(`!!!!!! ${articles[s].name} a moin de 3 pièces en stock. !!!!!! `)
+  } else if (articles[s].quantity === undefined || articles[s].quantity === 0)
+    window.alert(`!!!!!! STOCK EPUISE !!!!!! ${articles[s].name} !!!!!! STOCK EPUISE !!!!!! `)
 }
 
 const cartSilver = document.getElementById("cart__silver");
@@ -184,16 +185,16 @@ const cartGold = document.getElementById("cart__gold");
 
 const cartList = document.getElementById("cart__list");
 function renderCart() {
-cartTotalTTC.innerText = getCartTotalVAT(cart).toLocaleString("fr-FR", {
-  maximumFractionDigits: 2
-});
+  cartTotalTTC.innerText = getCartTotalVAT(cart).toLocaleString("fr-FR", {
+    maximumFractionDigits: 2
+  });
 
-cartTotalHT.innerText = getCartTotal(cart).toLocaleString("fr-FR", {
-  maximumFractionDigits: 2
-});
-const { gold, silver } = convertGoldToSilverAndGold(getCartTotalVAT(cart));
-cartGold.innerText = gold;
-cartSilver.innerText = silver;
+  cartTotalHT.innerText = getCartTotal(cart).toLocaleString("fr-FR", {
+    maximumFractionDigits: 2
+  });
+  const { gold, silver } = convertGoldToSilverAndGold(getCartTotalVAT(cart));
+  cartGold.innerText = gold;
+  cartSilver.innerText = silver;
   cartList.innerHTML = '';
   cart.forEach(item => {
     const cartItem = document.createElement("article");
@@ -219,7 +220,7 @@ cartSilver.innerText = silver;
       removeItemFromCart(item.name);
       cartItem.remove();
 
-    renderCart()
+      renderCart()
 
     });
 
@@ -234,7 +235,7 @@ cartSilver.innerText = silver;
     addButton.addEventListener("click", () => {
       addQuantityInCart(item.name);
       inputField.value = parseInt(inputField.value) + 1;
-    renderCart();
+      renderCart();
     });
 
     const decButton = cartItem.querySelector("#dec");
@@ -242,7 +243,7 @@ cartSilver.innerText = silver;
       removeQuantityInCart(item.name);
       inputField.value = parseInt(inputField.value) > 0 ? parseInt(inputField.value) - 1 : 0;
 
-renderCart()
+      renderCart()
 
     });
     cartList.appendChild(cartItem);
@@ -258,6 +259,7 @@ buttons.forEach(button => {
     addItemToCart(imgName, 1, getItemPrice(articles, imgName));
     renderCart();
 
-  });});
+  });
+});
 
 
