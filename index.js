@@ -174,6 +174,7 @@ async function getArticlesData() {
   function renderArticles() {
     itemList.innerHTML = "";
     filteredArticles.forEach(article => {
+      const coins = convertGoldToSilverAndGold(article.price);
       if (article.quantity > 0) {
         const item = document.createElement("li");
         item.className = "card";
@@ -181,8 +182,8 @@ async function getArticlesData() {
         <h3 class="card__ttl">${article.name}</h3>
         <img class="card__img" src="./img/${article.name}.png" id="${article.name}" data-img-name="${article.name}">
         <div class="card__price">
-          <span class="card__sc"><img src="img/po.png" class="card__coins">${article.price.toFixed(2)}</span>
-          <span class="card__sc"><img src="img/pa.png" class="card__coins">${article.price.toFixed(2)}</span>
+          <span class="card__sc"><img src="img/po.png" class="card__coins">${coins.gold}</span>
+          <span class="card__sc"><img src="img/pa.png" class="card__coins">${coins.silver}</span>
           <span class="card__gc">stock : ${article.quantity}</span>
         </div>
         <button class="card__btn" > 

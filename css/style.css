@@ -96,6 +96,7 @@ ul {
   align-items: center;
   justify-content: flex-start;
   padding: 1.5rem;
+  background-color: #FCF0DC;
   color: #6C491F;
   gap: 2rem;
   width: 100%;
@@ -124,6 +125,8 @@ ul {
   width: 3rem;
   border-radius: 0.2rem;
   border: none;
+  font-size: 1.5rem;
+  text-align: center;
 }
 .itm__button {
   border: none;
